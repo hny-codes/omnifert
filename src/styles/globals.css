@@ -84,3 +84,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .link {
+    @apply px-2 py-1 hover:text-[--clr-green-01];
+  }
+
+  .menu {
+    @apply flex flex-col gap-4 w-[150px] text-center py-4;
+  }
+
+  .menu-link-item {
+    @apply font-extrabold;
+  }
+
+  .menu-item {
+    @apply hover:text-[--clr-green-01]
+  }
+}
