@@ -61,6 +61,7 @@
     /* COLORS */
     --clr-green-01: #009444;
     --clr-green-02: #a6ce39;
+    --clr-green-03: #0D3C00;
 
     --clr-white-01: #ffffff;
     --clr-white-02: #f4f5f0;
@@ -107,6 +108,15 @@
 }
 
 @layer components {
+  /* Global */
+  .strong {
+    @apply text-[--clr-green-01] font-gothamRounded text-sm font-light lg:text-lg;
+  }
+
+  .l-border {
+    @apply border-l-2 border-[--clr-green-02] pl-4;
+  }
+
   /* Nav */
   .link {
     @apply px-2 py-1 hover:text-[--clr-green-01];

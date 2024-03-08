@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import { Button } from '@/components/ui/button';
+import CropImage from '../../assets/home/aboutImg.png';
+import Dots from '../../assets/home/aboutDots.png';
+---
+
+<section class='my-16'>
+  <div
+    class='px-4 flex flex-col justify-center items-center md:grid grid-cols-2 md:gap-10 max-w-[--max-width-content] mx-auto'
+  >
+    <div class='relative md:-translate-x-10'>
+      <Image
+        src={CropImage}
+        alt={'African Crops'}
+        class={'relative z-10 max-h-[400px]'}
+        loading={'eager'}
+      />
+      <Image
+        src={Dots}
+        alt={'African Crops'}
+        class={'absolute -right-12 -bottom-2 z-0'}
+        loading={'eager'}
+      />
+    </div>
+    <div class='mt-10 md:mt-0'>
+      <strong class='strong l-border'>About Omnifert</strong>
+      <h2
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded'
+      >
+        Improve the crop production of Africa
+      </h2>
+      <p class='l-border font-montserrat text-sm w-[91%]'>
+        OmniFert is a wholly owned indigenous Ghanaian company focusing on
+        improving the crop production of Africa by providing affordable
+        fertilizers to farmers, establishing commercial sized farms to produce
+        crops such as cassava, millet, sorghum, maize, soya, etc. to bridge the
+        gaps in the local supply as well as conduct soil tests on farms so as to
+        accurately determine the fertilizer needs specific to each farm.
+      </p>
+      <Button variant={'leaf'} size={'leafLg'} className='mt-6'>
+        Learn more
+      </Button>
+    </div>
+  </div>
+</section>
