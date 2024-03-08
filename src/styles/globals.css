@@ -36,6 +36,7 @@
     --radius: 0.5rem;
 
     --max-width: 1440px;
+    --max-width-content: 1220px;
 
     /* COLORS */
     --clr-green-01: #009444;
@@ -86,6 +87,7 @@
 }
 
 @layer components {
+  /* Nav */
   .link {
     @apply px-2 py-1 hover:text-[--clr-green-01];
   }
@@ -99,6 +101,22 @@
   }
 
   .menu-item {
-    @apply hover:text-[--clr-green-01]
+    @apply hover:text-[--clr-green-01];
+  }
+
+  /* Home Page */
+  .fert-before {
+    @apply relative 
+    before:font-bold before:content-['⚬'] before:text-lg 
+    
+    before:absolute before:top-5 before:right-1/2
+    sm:before:top-0 sm:before:-right-4
+    lg:before:top-1;
+  }
+}
+
+@layer utilities {
+  .margin {
+    @apply mx-auto 2xl:mx-44;
   }
 }
