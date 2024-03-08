@@ -12,8 +12,8 @@ import Navbar from '../components/home/Navbar';
     <meta name='generator' content={Astro.generator} />
     <title>OmniFert</title>
   </head>
-  <body>
-    <header class='bg-[--clr-green-01]'>
+  <body class="relative">
+    <header class='bg-[--clr-green-01] fixed w-full top-0 z-50'>
       <ContactHeader />
       <Navbar client:load />
     </header>
