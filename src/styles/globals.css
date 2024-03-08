@@ -3,6 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'GothamRounded';
+  src: url('/fonts/Gotham Rounded Medium.otf');
+}
+
+@font-face {
+  font-family: 'GothamRoundedBold';
+  src: url('/fonts/Gotham Rounded Bold.otf');
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('/fonts/Gotham Rounded Book.otf');
+}
+
+@font-face {
+  font-family: 'GothamLight';
+  src: url('/fonts/Gotham Rounded Light.otf');
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

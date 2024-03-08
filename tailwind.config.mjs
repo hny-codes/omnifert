@@ -12,6 +12,13 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        montserrat: 'Montserrat Variable, sans-serif',
+        gothamRounded: ['GothamRounded', 'sans-serif'],
+        gothamBold: ['GothamRoundedBold', 'sans-serif'],
+        gothamBook: ['GothamBook', 'sans-serif'],
+        gothamLight: ['GothamLight', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
