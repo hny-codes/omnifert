@@ -1,0 +1,33 @@
+---
+import Leaf from '../../assets/home/leafcontact.png';
+import { Image } from 'astro:assets';
+import { Button } from '../ui/button';
+---
+
+<section
+  class='bg-[url("src/assets/home/bg-contact.jpg")] bg-no-repeat bg-cover bg-center text-[--clr-white-01]'
+>
+  <div
+    class='py-20 px-4 text-center md:text-left flex flex-col md:flex-row gap-4 md:items-center md:justify-between max-w-[--max-width-content] mx-auto'
+  >
+    <div class='flex flex-col md:flex-row items-center gap-4 md:gap-0'>
+      <Image src={Leaf} alt={'leaf icon'} width={213} height={128} class={''} />
+      <div>
+        <h2 class='font-gothamRounded font-bold text-3xl lg:text-5xl'>Get in touch</h2>
+        <p class='font-muktaMahee mt-4 sm:w-4/5 sm:mx-auto md:w-full md:mx-0 xl:w-[85%]'>
+          Let's transform lives and drive the growth of a robust agro-industrial
+          sector in Ghana together!
+        </p>
+      </div>
+    </div>
+    <div>
+      <Button
+        variant={'nonLeaf'}
+        size={'leafLg'}
+        className='font-bold uppercase tracking-widest'
+      >
+        Get Started
+      </Button>
+    </div>
+  </div>
+</section>
