@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import VideoImg from '../../assets/home/video.png';
+---
+
+<section class='my-16'>
+  <div class='md:grid md:grid-cols-2 2xl:grid-cols-[auto_minmax(0,_1fr)]'>
+    <div class='flex-grow md:ml-3'>
+      <Image src={VideoImg} alt={'sample video'} />
+    </div>
+    <div class='mt-10 md:mt-0 px-4 xl:mt-20'>
+      <strong class='strong l-border'>What We Do</strong>
+      <h2
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded lg:w-[84%]'
+      >
+        We Are Different From Others To Provide Services
+      </h2>
+      <p class='font-montserrat text-sm w-[91%] lg:w-[73.7%] leading-6'>
+        We transform chemicals for a sustainable future by combining economic
+        success with environmental protection and social responsibility. We
+        focus on improving crop production by providing affordable and quality
+        fertilizers to farmers, focusing on providing the right specifications
+        of fertilizer according to the soil and crop types. Our state-of-the-art
+        fertilizer-blending facility is unique within the industry. Committed to
+        improving agricultural productivity, incomes, and employment
+        opportunities in Ghana as well as other West African countries.
+      </p>
+    </div>
+  </div>
+</section>
