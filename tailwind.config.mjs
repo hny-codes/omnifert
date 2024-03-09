@@ -30,6 +30,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: 'Montserrat Variable, sans-serif',
+        muktaMahee: 'Mukta Mahee, sans-serif',
         gothamRounded: ['GothamRounded', 'sans-serif'],
         gothamBold: ['GothamRoundedBold', 'sans-serif'],
         gothamBook: ['GothamBook', 'sans-serif'],
