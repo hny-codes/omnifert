@@ -19,6 +19,10 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         leaf: 'text-primary bg-[--clr-green-01] text-[--clr-white-01] rounded-r-full rounded-bl-full font-bold uppercase hover:brightness-90',
+        nonLeaf:
+          'text-primary bg-[--clr-green-01] text-[--clr-white-01] hover:brightness-90',
+        subscribe:
+          'text-primary bg-[--clr-white-01] text-[--clr-green-03] hover:brightness-90 rounded-r-full rounded-bl-full font-bold uppercase',
       },
       size: {
         default: 'h-10 px-4 py-2',
