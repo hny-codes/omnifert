@@ -1,0 +1,81 @@
+---
+import Logo from '../../assets/home/footer-logo.png';
+import { Button } from '@/components/ui/button';
+import Facebook from '../../assets/home/facebook.png';
+import LinkedIn from '../../assets/home/linkedin.png';
+import Newsletter from '../../assets/home/newsletter.png';
+import { Image } from 'astro:assets';
+---
+
+<footer class='bg-[--clr-green-03] pt-12 pb-6'>
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <div
+      class='text-[--clr-white-01] flex flex-col lg:grid grid-cols-4 gap-12 justify-center items-center lg:items-start'
+    >
+      <div class='flex flex-col items-center lg:items-start gap-6'>
+        <a href='/' class=''>
+          <Image src={Logo} alt='' />
+        </a>
+        <p
+          class='font-montserrat text-[--clr-white-02] text-center lg:text-left w-3/4 mx-auto text-sm  lg:mx-0 lg:w-full'
+        >
+          OmniFert is a wholly owned indigenous Ghanaian company focusing on
+          improving the crop production of Africa
+        </p>
+
+        <h3 class='font-gothamRounded text-2xl lg:mt-4'>Follow Us</h3>
+        <div class='flex items-center gap-6'>
+          <a href='/'>
+            <img src={Facebook.src} alt='facebook link' />
+          </a>
+          <a href='/'>
+            <img src={LinkedIn.src} alt='linkedin link' />
+          </a>
+        </div>
+      </div>
+      <!-- empty -->
+      <!-- <div class='flex flex-col items-center gap-6'></div> -->
+      <div class='flex flex-col items-center lg:items-start gap-4 lg:gap-5'>
+        <h3 class='font-gothamRounded text-2xl'>Quick Links</h3>
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >About Us</a
+        >
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >Products</a
+        >
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >Press Releases</a
+        >
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >Media</a
+        >
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >Checkout</a
+        >
+        <a href='Contact'></a>
+      </div>
+      <div>
+        <h3 class='font-gothamRounded text-2xl'>Latest Posts</h3>
+      </div>
+      <div class='flex flex-col items-center lg:items-start gap-4'>
+        <h3 class='font-gothamRounded text-2xl'>Newsletter</h3>
+        <div class='relative'>
+          <input
+            class='bg-[--clr-green-02] text-[--clr-white-01] font-gothamRounded pl-8 pr-12 py-4 placeholder:text-[--clr-white-01] placeholder:font-gothamRounded w-[300px] lg:w-full'
+            type='text'
+            placeholder='Enter Your Email'
+          />
+          <Image class={'newsletter'} src={Newsletter} alt={''} />
+        </div>
+        <Button variant={'subscribe'} size={'leafLg'}>Subscribe Now</Button>
+      </div>
+    </div>
+    <div
+      class='border-t border-[--clr-white-02] mt-10 lg:mt-28 pt-8 flex justify-center'
+    >
+      <small class='text-[--clr-white-02] font-montserrat'>
+        Copyright ©2023 OmniFert. All Rights Reserved
+      </small>
+    </div>
+  </div>
+</footer>

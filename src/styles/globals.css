@@ -144,6 +144,10 @@
     sm:before:top-0 sm:before:-right-4
     lg:before:top-1;
   }
+
+  .newsletter {
+    @apply absolute top-4 right-4;
+  }
 }
 
 @layer utilities {
