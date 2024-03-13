@@ -62,10 +62,12 @@
     /* COLORS */
     --clr-green-01: #009444;
     --clr-green-02: #a6ce39;
-    --clr-green-03: #0D3C00;
+    --clr-green-03: #0d3c00;
 
     --clr-white-01: #ffffff;
     --clr-white-02: #f4f5f0;
+
+    --clr-font: #444444;
   }
 
   .dark {
@@ -116,6 +118,14 @@
 
   .l-border {
     @apply border-l-2 border-[--clr-green-02] pl-4;
+  }
+
+  .l-border-dark {
+    @apply border-l-4 border-[--clr-green-01] pl-4;
+  }
+
+  .p-text {
+    @apply text-[--clr-font];
   }
 
   /* Nav */
