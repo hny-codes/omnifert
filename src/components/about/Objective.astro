@@ -1,0 +1,52 @@
+---
+import ObjectiveCard from './ObjectiveCard.tsx';
+import Bag from '../../assets/about/bag.svg';
+import Barn from '../../assets/about/barn.svg';
+import Crops from '../../assets/about/crops.svg';
+import Fields from '../../assets/about/fields.svg';
+import Weeds from '../../assets/about/weeds.svg';
+
+const revolutionName = 'Revolutionizing Agricultural Support';
+const revolutionDesc =
+  'Develop a state-of-the art fertilizer blending facility in Ghana to serve the landlocked countries of Burkina Faso, Mali, and Niger.';
+
+const fertName = 'Supplying Quality Fertilizers to Farmers';
+const fertDesc =
+  'Provide high quality fertilizer at the right time and right price to smallholder and commercial farmers in Ghana, Burkina Faso, Mali, and Niger';
+
+const enhanceName = 'Enhancing Agriculture';
+const enhanceDesc =
+  'Improve agriculture productivity, incomes and employment opportunities in the aforementioned countries';
+
+const linksName = 'Building Efficient Agriculture Links';
+const linksDesc =
+  'Establish efficient agriculture industry linkages in the aforementioned countries.';
+
+const farmName = 'Creating Farms';
+const farmDesc =
+  'Establish commercial farms to supply produce to meet gaps in Ghana’s local yield as well as for export.';
+---
+
+<section class='py-32 bg-[--clr-white-02]'>
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <div class='text-center'>
+      <strong class='strong font-light'>What We Do</strong>
+      <h2
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded'
+      >
+        Our Objectives
+      </h2>
+    </div>
+    <div class='mt-16 md:grid grid-cols-2 lg:grid-cols-3 gap-2'>
+      <ObjectiveCard
+        title={revolutionName}
+        body={revolutionDesc}
+        image={Fields}
+      />
+      <ObjectiveCard title={fertName} body={fertDesc} image={Bag} />
+      <ObjectiveCard title={enhanceName} body={enhanceDesc} image={Crops} />
+      <ObjectiveCard title={linksName} body={linksDesc} image={Weeds} />
+      <ObjectiveCard title={farmName} body={farmDesc} image={Barn} />
+    </div>
+  </div>
+</section>
