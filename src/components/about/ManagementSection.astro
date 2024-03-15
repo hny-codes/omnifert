@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import Michael from '../../assets/about/michael.png';
+import Pamela from '../../assets/about/pamela.png';
+import Doreen from '../../assets/about/doreen.png';
+import Samuel from '../../assets/about/samuel.jpg';
+import Paul from '../../assets/about/paul.jpg';
+---
+
+<section class='py-24'>
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <div class='text-center mb-20'>
+      <strong class='strong font-light'>Meet Our Team</strong>
+      <h2
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded'
+      >
+        Our Management
+      </h2>
+    </div>
+    <div class='font-gothamRounded text-center md:flex flex-col items-center'>
+      <div class='lg:flex gap-10 lg:mb-14'>
+        <div class='flex flex-col items-center mb-8 lg:mb-0'>
+          <Image src={Michael} alt={'michael'} />
+          <h3 class='text-[--clr-green-01] text-[1.125rem] mt-2 uppercase'>
+            Michael Zormelo
+          </h3>
+          <p class='text-[--clr-green-03] font-light text-[0.9375rem]'>
+            Group Chief Executive Officer
+          </p>
+        </div>
+        <div class='flex flex-col items-center mb-8 lg:mb-0'>
+          <Image src={Pamela} alt={'pamela'} />
+          <h3 class='text-[--clr-green-01] text-[1.125rem] mt-2 uppercase'>
+            Pamela Zormelo (Mrs.)
+          </h3>
+          <p class='text-[--clr-green-03] font-light text-[0.9375rem]'>
+            Group Managing Director
+          </p>
+        </div>
+      </div>
+      <div class='lg:flex gap-10'>
+        <div class='flex flex-col items-center mb-8 lg:mb-0'>
+          <Image src={Doreen} alt={'doreen'} />
+          <h3 class='text-[--clr-green-01] text-[1.125rem] mt-2 uppercase'>
+            Doreen Ankumah (Mrs.)
+          </h3>
+          <p class='text-[--clr-green-03] font-light text-[0.9375rem]'>
+            Group HR & Administrative Manager
+          </p>
+        </div>
+        <div class='flex flex-col items-center mb-8 lg:mb-0'>
+          <Image src={Samuel} alt={'samuel'} />
+          <h3 class='text-[--clr-green-01] text-[1.125rem] mt-2 uppercase'>
+            Samuel Twumasi Ankrah
+          </h3>
+          <p class='text-[--clr-green-03] font-light text-[0.9375rem]'>
+            Production Manager
+          </p>
+        </div>
+        <div class='flex flex-col items-center mb-8 lg:mb-0'>
+          <Image src={Paul} alt={'paul'} />
+          <h3 class='text-[--clr-green-01] text-[1.125rem] mt-2 uppercase'>
+            Paul Pypers Yaw Donkor
+          </h3>
+          <p class='text-[--clr-green-03] font-light text-[0.9375rem]'>
+            Deputy Manager - HSE
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
