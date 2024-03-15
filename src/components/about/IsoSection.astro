@@ -1,0 +1,46 @@
+---
+import TopLeaf from '@/assets/about/leaf-full.png';
+import InnerLeaf from '@/assets/about/leaf-tp.png';
+import Cert1 from '@/assets/about/cert1.png';
+import Cert2 from '@/assets/about/cert2.png';
+import Cert3 from '@/assets/about/cert3.png';
+
+import { Image } from 'astro:assets';
+---
+
+<section class='py-20 bg-[--clr-green-03] relative'>
+  <Image
+    src={TopLeaf}
+    alt={''}
+    class={'absolute right-2 2xl:right-14 -top-[11.1rem] xl:-top-[17.4rem]  2xl:-top-[23.5rem] w-[122px] xl:w-[190px] 2xl:w-[257px]'}
+  />
+  <Image src={InnerLeaf} alt={''} class={'absolute left-4 top-0'} />
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <div class='text-center'>
+      <div>
+        <strong
+          class='text-[--clr-green-02] font-light font-gothamBook text-sm lg:text-base'
+          >Our Certificates</strong
+        >
+        <h2
+          class='text-3xl md:text-4xl lg:text-5xl font-bold text-[--clr-white-01] my-4 lg:my-6 font-gothamRounded'
+        >
+          Our ISO Certifications
+        </h2>
+      </div>
+      <div
+        class='flex flex-col lg:flex-row items-center justify-center gap-8 mt-10'
+      >
+        <a href='/src/assets/about/cert1.png' target='_blank'
+          ><Image src={Cert1} alt={'certification 1'} /></a
+        >
+        <a href='/src/assets/about/cert2.png' target='_blank'
+          ><Image src={Cert2} alt={'certification 2'} /></a
+        >
+        <a href='/src/assets/about/cert3.png' target='_blank'
+          ><Image src={Cert3} alt={'certification 3'} /></a
+        >
+      </div>
+    </div>
+  </div>
+</section>
