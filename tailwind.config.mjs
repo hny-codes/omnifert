@@ -34,6 +34,7 @@ module.exports = {
       fontFamily: {
         montserrat: 'Montserrat Variable, sans-serif',
         muktaMahee: 'Mukta Mahee, sans-serif',
+        inter: 'Inter Variable, san-serif',
         gothamRounded: ['GothamRounded', 'sans-serif'],
         gothamBold: ['GothamRoundedBold', 'sans-serif'],
         gothamBook: ['GothamBook', 'sans-serif'],

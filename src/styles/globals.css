@@ -1,5 +1,6 @@
 @import '@fontsource/mukta-mahee';
 @import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/inter';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,6 +67,8 @@
 
     --clr-white-01: #ffffff;
     --clr-white-02: #f4f5f0;
+
+    --clr-gray: #6D6D6D;
 
     --clr-font: #444444;
   }
