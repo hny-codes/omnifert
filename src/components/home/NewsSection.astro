@@ -1,19 +1,54 @@
 ---
+import { Image } from 'astro:assets';
+import DateIcon from '../../assets/articles/post-check.png';
+import CommentIcon from '../../assets/articles/comment.png';
+import { getCollection, getEntry } from 'astro:content';
 
+const allArticles = await getCollection('articles');
 ---
 
-<section class="py-12">
-  <div class="text-center">
-    <div>
+<section class='py-28 bg-[--clr-white-02]'>
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <div class='text-center'>
       <strong class='strong font-light'>Latest News & Blog</strong>
       <h2
-        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded'
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 lg:mb-14 font-gothamRounded'
       >
         Popular Articles And Tips
       </h2>
     </div>
-    <div>
-      <!-- TODO - Blog article listings -->
+    <div
+      class='grid grid-cols-1 gap-8 lg:gap-6 justify-items-center lg:grid-cols-3'
+    >
+      {
+        allArticles.map((article) => (
+          <a
+            href='/'
+            class='flex flex-col justify-center max-w-[370px] lg:grid 
+            lg:grid-rows-[370px_minmax(0,_1fr)]_minmax(0,_1fr)]'
+          >
+            <img
+              src={article.data.image}
+              alt={article.data.imageAlt}
+              class=''
+            />
+            <strong class='strong l-border-dark mt-6'>Article</strong>
+            <h3 class='text-xl font-bold text-[--clr-green-03] my-4 lg:my-6 font-gothamRounded'>
+              {article.data.title}
+            </h3>
+            <div class='flex gap-8 font-inter text-[--clr-gray]'>
+              <div class='flex gap-1 items-center'>
+                <Image src={DateIcon} alt={''} />
+                <p>{article.data.date}</p>
+              </div>
+              <div class='flex gap-1 items-center'>
+                <Image src={CommentIcon} alt={''} />
+                <p>No Comments</p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
