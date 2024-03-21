@@ -1,0 +1,33 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allArticles = await getCollection('articles');
+
+  return allArticles.flatMap((article) => {
+    return {
+      params: { slug: String(article.slug).split('/')[1] },
+      props: {
+        title: article.data.title,
+        date: article.data.date,
+        author: article.data.author,
+        image: article.data.image,
+        alt: article.data.imageAlt,
+        body: article.body,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { title, date, author, image, alt, body } = Astro.props;
+---
+
+<article>
+  <h1>{title}</h1>
+  <p>{date}</p>
+  <p>{author}</p>
+  <br />
+  <p>{image}</p>
+  <p>{body}</p>
+</article>
