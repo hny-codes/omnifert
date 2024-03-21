@@ -3,17 +3,23 @@ import '@/styles/globals.css';
 import ContactHeader from '../components/home/ContactHeader.astro';
 import Navbar from '../components/home/Navbar';
 import Footer from '../components/home/Footer.astro';
+
+function capitalizeLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const currentUrl = capitalizeLetter(String(Astro.url.pathname).split('/')[1]);
 ---
 
-<html lang='en' class="overflow-x-hidden">
+<html lang='en' class='overflow-x-hidden'>
   <head>
     <meta charset='utf-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
-    <title>OmniFert</title>
+    <title>OmniFert {currentUrl ? `- ${currentUrl}` : ''}</title>
   </head>
-  <body class="relative">
+  <body class='relative'>
     <header class='bg-[--clr-green-01] fixed w-full top-0 z-50'>
       <ContactHeader />
       <Navbar client:load />
