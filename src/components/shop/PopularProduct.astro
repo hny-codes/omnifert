@@ -1,0 +1,42 @@
+---
+import StarIcon from '../../assets/products/star.png';
+import { Image } from 'astro:assets';
+
+type Props = {
+  image: ImageMetadata;
+  imageAlt: string;
+  name: string;
+  price: string;
+  oldPrice?: string;
+};
+
+const { image, imageAlt, name, price, oldPrice } = Astro.props;
+---
+
+<li class='text-center flex flex-col items-center justify-center'>
+  <a href='/'
+    ><Image src={image} alt={imageAlt} class={'mb-6'} />
+    <div>
+      <h3 class='text-[--clr-green-03] font-semibold font-gothamRounded mb-2'>
+        {name}
+      </h3>
+      {
+        oldPrice ? (
+          <div class='mb-2 font-gothamLight flex items-center justify-center gap-4'>
+            <p class='text-[--clr-green-01]'>GHS {price}</p>
+            <p class="line-through text-[#999999]">GHS {oldPrice}</p>
+          </div>
+        ) : (
+          <p class='mb-2 font-gothamLight text-[--clr-green-01]'>GHS {price}</p>
+        )
+      }
+      <div class='flex gap-1 justify-center items-center'>
+        <Image src={StarIcon} alt={''} />
+        <Image src={StarIcon} alt={''} />
+        <Image src={StarIcon} alt={''} />
+        <Image src={StarIcon} alt={''} />
+        <Image src={StarIcon} alt={''} />
+      </div>
+    </div></a
+  >
+</li>
