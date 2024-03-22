@@ -30,12 +30,13 @@ const itemsCollection = defineCollection({
   type: 'data',
   schema: ({ image }) =>
     z.object({
+      id: z.number(),
       title: z.string(),
       date: z.string(),
       image: image(),
       imageAlt: z.string(),
       imagePreviews: z.string().optional(),
-      price: z.string(),
+      price: z.number(),
       oldPrice: z.string().optional(),
       desc: z.string().optional(),
       specification: z.array(z.string()),
