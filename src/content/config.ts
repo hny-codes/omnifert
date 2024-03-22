@@ -28,18 +28,18 @@ const latestCollection = defineCollection({
 
 const itemsCollection = defineCollection({
   type: 'data',
-  schema: z.object({
-    title: z.string(),
-    date: z.string(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.string(),
+      image: image(),
+      imageAlt: z.string(),
+      imagePreviews: z.string().optional(),
+      price: z.string(),
+      oldPrice: z.string().optional(),
+      desc: z.string().optional(),
+      specification: z.array(z.string()),
     }),
-    imagePreviews: z.string().optional(),
-    price: z.string(),
-    desc: z.string().optional(),
-    specification: z.array(z.string()),
-  }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)
