@@ -1,9 +1,13 @@
 ---
-import { Button } from "../ui/button"
+import { Button } from '../ui/button';
+import { getCollection, getEntry } from 'astro:content';
+import PopularProduct from '@/components/shop/PopularProduct.astro';
+
+const allPopularProducts = await getCollection('items');
 ---
 
-<section class="py-12">
-  <div class="text-center">
+<section class='py-12'>
+  <div class='text-center px-4 max-w-[--max-width-content] mx-auto'>
     <div>
       <strong class='strong font-light'>Popular Choices</strong>
       <h2
@@ -12,9 +16,20 @@ import { Button } from "../ui/button"
         Popular Products
       </h2>
     </div>
-    <div>
+    <ul class='my-10 flex flex-col md:flex-row gap-8 flex-wrap md:justify-center'>
       <!-- TODO - Product log -->
-    </div>
+      {
+        allPopularProducts.map((product) => (
+          <PopularProduct
+            image={product.data.image}
+            imageAlt={product.data.imageAlt}
+            name={product.data.title}
+            price={product.data.price}
+            oldPrice={product.data.oldPrice}
+          />
+        ))
+      }
+    </ul>
     <Button variant={'leaf'} size={'leafLg'}>Our catalogue</Button>
   </div>
 </section>
