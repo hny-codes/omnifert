@@ -1,0 +1,16 @@
+{
+  "title": "Multiphos",
+  "date": "September 23, 2023",
+  "image": "src/assets/products/popular/pop-product2.png",
+  "imageAlt": "Multiphos",
+  "price": "45.55",
+  "oldPrice": "66.65",
+  "desc": "Triple superphosphate Ca(H2PO4)2 TSP is soluble in water, preferably mixed with farm manure application, but can not be mixed with alkaline material to produce insoluble calcium phosphate and reduced fertility. It can be used as basic fertilizer, top dressing or mixed with composite (mixed) fertilizer for various soil and crop . Widely used in rice, wheat, corn, sorghum, cotton, fruits, vegetables and other food crops and cash crops. .",
+  "specification": [
+    "Total P2O5: 46% min",
+    "Available P2O5: 42%-43%",
+    "Water soluble phosphate: 40% min",
+    "Moisture: 3% max",
+    "Granule size: 2-4mm"
+  ]
+}
