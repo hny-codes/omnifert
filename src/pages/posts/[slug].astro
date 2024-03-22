@@ -1,5 +1,13 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import OmniImg from 'src/assets/articles/article1.png';
+import EnvImg from 'src/assets/articles/article2.png';
+import StandardImg from 'src/assets/articles/article3.png';
+import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import DateIcon from '../../assets/articles/post-check.png';
+import CommentIcon from '../../assets/articles/comment.png';
+import AuthorIcon from '../../assets/articles/author.svg';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const allArticles = await getCollection('articles');
@@ -21,13 +29,74 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const { title, date, author, image, alt, body } = Astro.props;
+
+function grabImage() {
+  switch (slug) {
+    case 'omnifarmers':
+      return { img: OmniImg, alt: 'omnifarmers image' };
+    case 'environment':
+      return { img: EnvImg, alt: 'Environment image' };
+    case 'standards':
+      return { img: StandardImg, alt: 'Standard Image' };
+  }
+}
 ---
 
-<article>
-  <h1>{title}</h1>
-  <p>{date}</p>
-  <p>{author}</p>
-  <br />
-  <p>{image}</p>
-  <p>{body}</p>
-</article>
+<ArticleLayout pageTitle={title}>
+  <article class='mt-32 md:flex flex-col items-center justify-center'>
+    <Image
+      src={grabImage()?.img as ImageMetadata}
+      alt={grabImage()?.alt as string}
+      class={'w-full md:max-w-[--max-width-article]'}
+    />
+    <div class='px-4 max-w-[--max-width-article] mx-auto'>
+      <h1
+        class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 lg:mb-14 font-gothamRounded'
+      >
+        {title}
+      </h1>
+      <div class='text-sm font-inter text-[--clr-gray] flex-wrap'>
+        <div class='flex gap-3 items-center'>
+          <div class='flex gap-1 items-center'>
+            <Image src={AuthorIcon} alt={''} />
+            <p>{author}</p>
+          </div>
+          <span class='text-[--clr-green-03] font-bold'> - </span>
+          <div class='flex gap-1 items-center'>
+            <Image src={DateIcon} alt={''} />
+            <p>{date}</p>
+          </div>
+        </div>
+        <div class='flex gap-1 items-center mt-2'>
+          <Image src={CommentIcon} alt={''} />
+          <p>No Comments</p>
+        </div>
+      </div>
+      <div
+        class='font-montserrat text-[--clr-font] leading-loose mt-4 pt-4 mb-10 border-t-2 pb-4 border-b-2'
+      >
+        <p>{body}</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus
+          quasi ipsa molestiae, soluta eos rem perspiciatis totam ut. Dolores
+          molestias quos iure ab esse, velit in ducimus quasi labore fuga.
+          Nostrum unde suscipit a corrupti voluptatibus iusto minus distinctio
+          quia consectetur, cumque id explicabo sit assumenda fuga ad sequi non,
+          rerum, officiis adipisci omnis? Sit incidunt at alias dignissimos
+          animi. Odio assumenda deserunt veritatis pariatur qui, saepe accusamus
+          earum magni repellendus. Iure repellat, voluptates dolorum, atque
+          harum voluptatem sint assumenda suscipit modi nemo deleniti architecto
+          quos! Quos exercitationem possimus voluptatum!
+        </p>
+      </div>
+      <div class='mb-10'>
+        <h2
+          class='text-3xl lg:text-5xl font-bold text-[--clr-green-03] my-4 lg:my-6 lg:mb-14 font-gothamRounded'
+        >
+          Comments
+        </h2>
+        <p class='ml-4'>No comments..</p>
+      </div>
+    </div>
+  </article>
+</ArticleLayout>
