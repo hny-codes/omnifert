@@ -40,6 +40,8 @@ const itemsCollection = defineCollection({
       oldPrice: z.string().optional(),
       desc: z.string().optional(),
       specification: z.array(z.string()),
+      sale: z.boolean(),
+      slug: z.string(),
     }),
 });
 
