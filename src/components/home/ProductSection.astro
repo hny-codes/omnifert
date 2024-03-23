@@ -16,8 +16,9 @@ const allPopularProducts = await getCollection('items');
         Popular Products
       </h2>
     </div>
-    <ul class='my-10 flex flex-col md:flex-row gap-8 flex-wrap md:justify-center'>
-      <!-- TODO - Product log -->
+    <ul
+      class='my-10 flex flex-col md:flex-row gap-8 flex-wrap md:justify-center'
+    >
       {
         allPopularProducts.map((product) => (
           <PopularProduct
@@ -26,6 +27,8 @@ const allPopularProducts = await getCollection('items');
             name={product.data.title}
             price={product.data.price}
             oldPrice={product.data.oldPrice}
+            url={product.data.slug}
+            sale={product.data.sale}
           />
         ))
       }
