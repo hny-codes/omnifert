@@ -3,7 +3,7 @@ title: 'The Changing Effects of the Environment on Agriculture'
 date: 'September 23, 2023'
 author: 'OmniFert'
 image: src/assets/articles/article2.png
-imageAlt: 'article image'
+imageAlt: 'environment'
 slug: posts/environment
 ---
 

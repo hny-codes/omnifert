@@ -3,8 +3,8 @@ title: 'Agriculture, Trade & Regulatory Standards in Ghana'
 date: 'September 23, 2023'
 author: 'OmniFert'
 image: src/assets/articles/article3.png
-imageAlt: 'article image'
+imageAlt: 'agriculture'
 slug: posts/standards
 ---
 
-OMNIFERT’s approach is focused on providing the right seeds and the right specification of fertilizers according to the soil and crop types, on an area by area and a farm-by-farm case. Our goal is to positively impact the lives of the millions of people who depend partly or fully on agriculture for their livelihoods.
+There can be no talk of food, where there is no mention of standards. As Ghana strives to become a trading hub in West Africa, the importance in defining standards, not only locally, but the process of harmonizing standards across the sub-region is growing in importance.

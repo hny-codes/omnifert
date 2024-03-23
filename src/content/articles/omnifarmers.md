@@ -3,7 +3,7 @@ title: 'Connecting with farmers to improve livelihoods'
 date: 'September 23, 2023'
 author: 'OmniFert'
 image: src/assets/articles/article1.png
-imageAlt: 'article image'
+imageAlt: 'farmers'
 slug: posts/omnifarmers
 ---
 
