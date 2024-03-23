@@ -4,7 +4,7 @@
   "date": "September 23, 2023",
   "image": "src/assets/products/popular/pop-product7.png",
   "imageAlt": "npk 20-10-10",
-  "price": 45.00,
+  "price": 45.0,
   "desc": "Triple superphosphate Ca(H2PO4)2 TSP is soluble in water, preferably mixed with farm manure application, but can not be mixed with alkaline material to produce insoluble calcium phosphate and reduced fertility. It can be used as basic fertilizer, top dressing or mixed with composite (mixed) fertilizer for various soil and crop . Widely used in rice, wheat, corn, sorghum, cotton, fruits, vegetables and other food crops and cash crops. .",
   "specification": [
     "Total P2O5: 46% min",
@@ -13,5 +13,6 @@
     "Moisture: 3% max",
     "Granule size: 2-4mm"
   ],
+  "sale": false,
   "slug": "/products/npk20-10-10"
 }
