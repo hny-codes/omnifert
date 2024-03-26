@@ -69,7 +69,7 @@
     --clr-white-01: #ffffff;
     --clr-white-02: #f4f5f0;
 
-    --clr-gray: #6D6D6D;
+    --clr-gray: #6d6d6d;
 
     --clr-font: #444444;
   }
@@ -111,6 +111,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* REMOVE arrows for numbers input */
+  /* https://stackoverflow.com/a/71297126 */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
