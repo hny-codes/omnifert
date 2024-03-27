@@ -7,7 +7,7 @@ import { Image } from 'astro:assets';
 <section
   class='bg-[url("src/assets/home/bg.jpg")] h-screen bg-no-repeat bg-cover bg-center relative'
 >
-  <Image src={Leaf} alt={''} class={'absolute top-32 lg:top-36'} />
+  <Image src={Leaf} alt={''} class={'absolute top-32 lg:top-36'} loading={'eager'} />
   <div class='px-4 bg-black/50 h-screen flex items-center'>
     <div
       class='mt-20 text-[--clr-white-01] text-center lg:text-left max-w-[--max-width-content] mx-auto flex-grow'

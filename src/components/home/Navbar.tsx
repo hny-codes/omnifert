@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <nav className='bg-[--clr-white-01] relative py-4'>
       <div className='px-4 flex justify-between lg:justify-normal items-center max-w-[--max-width] mx-auto'>
-        <a href='/' className='lg:mr-32'>
+        <a href='/' className='lg:mr-32' aria-label='home'>
           <img src={Logo.src} alt='' className='w-3/4 lg:w-full' />
         </a>
         <div className='flex items-center justify-between gap-4'>

@@ -13,11 +13,11 @@ import { Image } from 'astro:assets';
       class='text-[--clr-white-01] flex flex-col lg:grid grid-cols-4 gap-12 justify-center items-center lg:items-start'
     >
       <div class='flex flex-col items-center lg:items-start gap-6'>
-        <a href='/' class=''>
+        <a href='/' class='' aria-label='home'>
           <Image src={Logo} alt='' />
         </a>
         <p
-          class='font-montserrat text-[--clr-white-02] text-center lg:text-left w-3/4 mx-auto text-sm  lg:mx-0 lg:w-full'
+          class='font-montserrat text-[--clr-white-02] text-center lg:text-left w-3/4 mx-auto text-sm lg:mx-0 lg:w-full'
         >
           OmniFert is a wholly owned indigenous Ghanaian company focusing on
           improving the crop production of Africa
@@ -26,10 +26,10 @@ import { Image } from 'astro:assets';
         <h3 class='font-gothamRounded text-2xl lg:mt-4'>Follow Us</h3>
         <div class='flex items-center gap-6'>
           <a href='/'>
-            <img src={Facebook.src} alt='facebook link' />
+            <img src={Facebook.src} alt='facebook link' loading='lazy' />
           </a>
           <a href='/'>
-            <img src={LinkedIn.src} alt='linkedin link' />
+            <img src={LinkedIn.src} alt='linkedin link' loading='lazy' />
           </a>
         </div>
       </div>
@@ -52,7 +52,9 @@ import { Image } from 'astro:assets';
         <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
           >Checkout</a
         >
-        <a href='Contact'></a>
+        <a href='/' class='text-[--clr-white-02] hover:underline text-sm'
+          >Contact</a
+        >
       </div>
       <div>
         <h3 class='font-gothamRounded text-2xl'>Latest Posts</h3>
@@ -65,7 +67,12 @@ import { Image } from 'astro:assets';
             type='text'
             placeholder='Enter Your Email'
           />
-          <Image class={'newsletter'} src={Newsletter} alt={''} />
+          <Image
+            class={'newsletter'}
+            src={Newsletter}
+            alt={''}
+            loading={'eager'}
+          />
         </div>
         <Button variant={'subscribe'} size={'leafLg'}>Subscribe Now</Button>
       </div>
