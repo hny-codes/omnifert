@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import randNums from '@/util/randNums';
+import { Image } from 'astro:assets';
+
+// Get current product ID to filter away the rest of the collection
+const { currentId } = Astro.props;
+
+const allItems = await getCollection('items', ({ id }) => {
+  return id !== currentId;
+});
+
+const nums = randNums(allItems.length);
+
+// Select 3 random items as the "related" products section
+const chosenItems = nums.map((num) => {
+  const randomItem = allItems[num];
+
+  return {
+    id: randomItem.id,
+    slug: randomItem.data.slug,
+    image: randomItem.data.image,
+    alt: randomItem.data.imageAlt,
+    title: randomItem.data.title,
+    price: randomItem.data.price,
+  };
+});
+---
+
+<section>
+  <div>
+    <h2
+      class='text-3xl font-gothamBold text-[--clr-green-03] mb-20 mt-10 text-center lg:text-left'
+    >
+      Related Products
+    </h2>
+    <ul class='flex flex-col gap-12 lg:flex-row lg:gap-6 lg:justify-between'>
+      {
+        chosenItems.map((item) => (
+          <a href={item.slug} class='w-fit mx-auto lg:mx-0'>
+            <li class='text-center flex flex-col items-center justify-center'>
+              <Image
+                src={item.image}
+                alt={item.alt}
+                class={'mb-6 object-cover w-[336px] h-[368px]'}
+                loading={'lazy'}
+              />
+              <div>
+                <h3 class='text-[--clr-green-03] font-gothamRounded  mb-2'>
+                  {item.title}
+                </h3>
+                <p class='text-[--clr-green-01] underline'>GHS {item.price}</p>
+              </div>
+            </li>
+          </a>
+        ))
+      }
+    </ul>
+  </div>
+</section>
