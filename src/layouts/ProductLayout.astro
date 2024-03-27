@@ -1,0 +1,28 @@
+---
+import '@/styles/globals.css';
+import ContactHeader from '../components/home/ContactHeader.astro';
+import Navbar from '../components/home/Navbar';
+import Footer from '../components/home/Footer.astro';
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang='en' class='overflow-x-hidden'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>OmniFert - {pageTitle}</title>
+  </head>
+  <body class='relative'>
+    <header class='bg-[--clr-green-01] fixed w-full top-0 z-50'>
+      <ContactHeader />
+      <Navbar client:load />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import { Image } from 'astro:assets';
+import Banner from '@/assets/products/banner.png';
+import StarIcon from '../../assets/products/star.png';
+import { Button } from '@/components/ui/button';
+import TabSection from '@/components/products/TabSection';
+import RanProductSection from '@/components/products/RanProductSection.astro';
+
+export async function getStaticPaths() {
+  const allItems = await getCollection('items');
+
+  return allItems.flatMap((item) => {
+    return {
+      params: { slug: String(item.data.slug).split('/')[2] },
+      props: {
+        id: item.id,
+        title: item.data.title,
+        date: item.data.date,
+        image: item.data.image,
+        imageAlt: item.data.imageAlt,
+        imagePreview: item.data.imagePreviews,
+        price: item.data.price,
+        oldPrice: item.data.oldPrice,
+        desc: item.data.desc,
+        specs: item.data.specification,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const {
+  id,
+  title,
+  date,
+  image,
+  imageAlt,
+  imagePreview,
+  price,
+  oldPrice,
+  desc,
+  specs,
+} = Astro.props;
+---
+
+<ProductLayout>
+  <article class='mt-28'>
+    <Image
+      class={'md:max-h-[442px] w-full md:object-cover'}
+      src={Banner}
+      alt={''}
+      loading={'eager'}
+    />
+    <div class='px-4 my-20'>
+      <div class='max-w-[--max-width-content] mx-auto'>
+        <div class='flex flex-col lg:grid lg:grid-cols-2 gap-2'>
+          <div
+            class='p-10 max-w-[585px] max-h-[570px] border-2 self-center lg:self-start'
+          >
+            <Image
+              src={image}
+              alt={''}
+              height={506}
+              class={'object-cover'}
+              loading={'eager'}
+            />
+          </div>
+          <div class='flex flex-col items-center lg:items-start gap-4 mt-6 lg:mt-0'>
+            <h1 class='font-gothamRounded text-3xl lg:text-5xl text-[--clr-green-03]'>{title}</h1>
+            <div class='flex gap-1 justify-center items-center'>
+              <Image src={StarIcon} alt={''} loading={'eager'} />
+              <Image src={StarIcon} alt={''} loading={'eager'} />
+              <Image src={StarIcon} alt={''} loading={'eager'} />
+              <Image src={StarIcon} alt={''} loading={'eager'} />
+              <Image src={StarIcon} alt={''} loading={'eager'} />
+              <span class='font-gothamRounded text-[--clr-font]'>( 0 )</span>
+            </div>
+            <div>
+              {
+                oldPrice ? (
+                  <div class='flex gap-2 font-gothamBook'>
+                    <p class='line-through text-[#B7AFD5]'>£{oldPrice}</p>
+                    <p class='text-[#003242]'>£{price}</p>
+                  </div>
+                ) : (
+                  <p class='text-[#003242] font-gothamBook'>£{price}</p>
+                )
+              }
+            </div>
+            <div class='border-t-2 pt-6 mt-4'>
+              <p class='text-[--clr-font] font-montserrat'>{desc}</p>
+            </div>
+            <div class='flex gap-4 items-center mt-6 self-start'>
+              <input
+                class='border-2 border-[#EAEDFF] w-[96px] h-[51px] px-6 [appearance:textfield]'
+                type='number'
+                placeholder='1 +'
+              />
+              <Button
+                className='font-inter uppercase'
+                variant={'leaf'}
+                size={'leafLg'}>Add To Cart</Button
+              >
+            </div>
+            <button class='font-gothamBook text-[--clr-font] self-start'
+              >Add to wishlist</button
+            >
+          </div>
+        </div>
+        <TabSection specs={specs} client:load />
+        <RanProductSection currentId={id} />
+      </div>
+    </div>
+  </article>
+</ProductLayout>
