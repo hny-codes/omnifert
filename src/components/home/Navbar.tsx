@@ -19,8 +19,15 @@ import {
   NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
 import { Menu } from 'lucide-react';
+import { cartItems } from '@/nanostores/cartStore';
+import { useStore } from '@nanostores/react';
 
 export default function Navbar() {
+  const cart = useStore(cartItems);
+  const items = Object.values(cart).reduce((_, item) => {
+    return item.quantity;
+  }, 0);
+
   return (
     <nav className='bg-[--clr-white-01] relative py-4'>
       <div className='px-4 flex justify-between lg:justify-normal items-center max-w-[--max-width] mx-auto'>
@@ -231,8 +238,13 @@ export default function Navbar() {
               Contact Us
             </a>
           </div>
-          <div className='lg:ml-8'>
-            <img src={Cart.src} alt='cart' />
+          <div className='lg:ml-8 relative'>
+            <span className='bg-[--clr-green-01] text-white py-1 px-2 rounded-full text-[0.75rem] font-gothamBook absolute bottom-[1.2rem] xl:bottom-3 -left-1 xl:left-4 text-center'>
+              {items < 100 ? items : '99+'}
+            </span>
+            <button>
+              <img src={Cart.src} alt='cart' />
+            </button>
           </div>
         </div>
       </div>
