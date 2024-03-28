@@ -7,6 +7,7 @@ import StarIcon from '../../assets/products/star.png';
 import { Button } from '@/components/ui/button';
 import TabSection from '@/components/products/TabSection';
 import RanProductSection from '@/components/products/RanProductSection.astro';
+import ProductForm from '@/components/products/ProductForm';
 
 export async function getStaticPaths() {
   const allItems = await getCollection('items');
@@ -61,14 +62,20 @@ const {
           >
             <Image
               src={image}
-              alt={''}
+              alt={imageAlt}
               height={506}
               class={'object-cover'}
               loading={'eager'}
             />
           </div>
-          <div class='flex flex-col items-center lg:items-start gap-4 mt-6 lg:mt-0'>
-            <h1 class='font-gothamRounded text-3xl lg:text-5xl text-[--clr-green-03]'>{title}</h1>
+          <div
+            class='flex flex-col items-center lg:items-start gap-4 mt-6 lg:mt-0'
+          >
+            <h1
+              class='font-gothamRounded text-3xl lg:text-5xl text-[--clr-green-03]'
+            >
+              {title}
+            </h1>
             <div class='flex gap-1 justify-center items-center'>
               <Image src={StarIcon} alt={''} loading={'eager'} />
               <Image src={StarIcon} alt={''} loading={'eager'} />
@@ -92,18 +99,7 @@ const {
             <div class='border-t-2 pt-6 mt-4'>
               <p class='text-[--clr-font] font-montserrat'>{desc}</p>
             </div>
-            <div class='flex gap-4 items-center mt-6 self-start'>
-              <input
-                class='border-2 border-[#EAEDFF] w-[96px] h-[51px] px-6 [appearance:textfield]'
-                type='number'
-                placeholder='1 +'
-              />
-              <Button
-                className='font-inter uppercase'
-                variant={'leaf'}
-                size={'leafLg'}>Add To Cart</Button
-              >
-            </div>
+            <ProductForm client:load id={id} title={title} image={image} />
             <button class='font-gothamBook text-[--clr-font] self-start'
               >Add to wishlist</button
             >
