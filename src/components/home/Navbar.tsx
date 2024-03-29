@@ -248,9 +248,9 @@ export default function Navbar() {
             <span className='bg-[--clr-green-01] text-white py-1 px-2 rounded-full text-[0.75rem] font-gothamBook absolute bottom-[1.2rem] xl:bottom-3 -left-1 xl:left-4 text-center'>
               {items < 100 ? items : '99+'}
             </span>
-            <button>
+            <a href='/checkout'>
               <img src={Cart.src} alt='cart' />
-            </button>
+            </a>
           </div>
         </div>
       </div>
