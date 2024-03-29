@@ -11,6 +11,7 @@ export type CartItem = {
     format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
   };
   quantity: number;
+  price: number;
 };
 
 export const cartItems = persistentAtom<CartItem[]>('cart', [], {
@@ -19,9 +20,9 @@ export const cartItems = persistentAtom<CartItem[]>('cart', [], {
 });
 
 // Function to add item to Cart
-type ItemDisplay = Pick<CartItem, 'id' | 'image' | 'quantity' | 'title'>;
+type ItemDisplay = Pick<CartItem, 'id' | 'image' | 'quantity' | 'title' | 'price'>;
 
-export function addToCart({ id, title, image, quantity }: ItemDisplay) {
+export function addToCart({ id, title, image, quantity, price }: ItemDisplay) {
   const existingItem = cartItems.get().filter((items) => items.id === id);
 
   // If item exist (array is not 0), update its quantity, else add new cart item
@@ -30,10 +31,10 @@ export function addToCart({ id, title, image, quantity }: ItemDisplay) {
     const updatedQuantity = existingItem[0].quantity + quantity;
     cartItems.set([
       ...filterCart,
-      { id, title, image, quantity: updatedQuantity },
+      { id, title, image, quantity: updatedQuantity, price },
     ]);
   } else if (quantity > 0) {
-    cartItems.set([...cartItems.get(), { id, title, image, quantity }]);
+    cartItems.set([...cartItems.get(), { id, title, image, quantity, price }]);
   }
 }
 
@@ -44,3 +45,7 @@ export function getStore() {
 export const cartQuantity = computed(cartItems, (items) => {
   return items.reduce((total, item) => total + item.quantity, 0);
 });
+
+export const cartPrice = computed(cartItems, (items) => {
+  return items.reduce((total, item) => total + item.price * item.quantity, 0)
+})

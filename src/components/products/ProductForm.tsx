@@ -1,10 +1,15 @@
 import { Button } from '@/components/ui/button';
 import type { FormEvent } from 'react';
 import { useState, useRef } from 'react';
-import { addToCart, getStore } from '@/nanostores/cartStorePersist';
+import { addToCart } from '@/nanostores/cartStorePersist';
 import type { CartItem } from '@/nanostores/cartStorePersist';
 
-export default function ProductForm({ id, title, image }: Partial<CartItem>) {
+export default function ProductForm({
+  id,
+  title,
+  image,
+  price,
+}: Partial<CartItem>) {
   const [quantity, setQuantity] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -21,8 +26,13 @@ export default function ProductForm({ id, title, image }: Partial<CartItem>) {
       onSubmit={(e) => {
         e.preventDefault();
 
-        if (id != undefined && title != undefined && image != undefined) {
-          addToCart({ id, title, image, quantity });
+        if (
+          id != undefined &&
+          title != undefined &&
+          image != undefined &&
+          price != undefined
+        ) {
+          addToCart({ id, title, image, quantity, price });
         }
         setQuantity(0);
       }}
