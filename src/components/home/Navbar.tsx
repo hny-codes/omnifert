@@ -1,3 +1,5 @@
+'use client';
+
 import Logo from '../../assets/home/logo.png';
 import Cart from '../../assets/home/cart.png';
 import {
@@ -21,10 +23,16 @@ import {
 import { Menu } from 'lucide-react';
 import { cartItems, cartQuantity } from '@/nanostores/cartStorePersist';
 import { useStore } from '@nanostores/react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
+  const [items, setItem] = useState(0);
   const cart = useStore(cartQuantity);
-  const items = cart;
+
+  // useEffect() to prevent text hydration error
+  useEffect(() => {
+    setItem(cart);
+  }, [cart]);
 
   return (
     <nav className='bg-[--clr-white-01] relative py-4'>
