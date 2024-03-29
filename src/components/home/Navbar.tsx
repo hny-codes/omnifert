@@ -19,14 +19,12 @@ import {
   NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
 import { Menu } from 'lucide-react';
-import { cartItems } from '@/nanostores/cartStore';
+import { cartItems, cartQuantity } from '@/nanostores/cartStorePersist';
 import { useStore } from '@nanostores/react';
 
 export default function Navbar() {
-  const cart = useStore(cartItems);
-  const items = Object.values(cart).reduce((_, item) => {
-    return item.quantity;
-  }, 0);
+  const cart = useStore(cartQuantity);
+  const items = cart;
 
   return (
     <nav className='bg-[--clr-white-01] relative py-4'>
