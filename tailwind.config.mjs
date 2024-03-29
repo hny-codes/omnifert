@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     backgroundImage: {
       'header-about': 'url("src/assets/about/about.png")',
+      'header-checkout': 'url("src/assets/products/banner.png")',
     },
     screens: {
       sm: '640px',
