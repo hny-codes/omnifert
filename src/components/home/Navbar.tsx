@@ -135,7 +135,7 @@ export default function Navbar() {
               </a>
             </DropdownMenuContent>
           </DropdownMenu>
-          <div className='hidden lg:flex items-center gap-6'>
+          <div className='hidden lg:flex items-center gap-6 lg:gap-0 xl:gap-6'>
             <a href='/' className='link'>
               Home
             </a>
@@ -245,7 +245,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className='lg:ml-8 relative'>
-            <span className='bg-[--clr-green-01] text-white py-1 px-2 rounded-full text-[0.75rem] font-gothamBook absolute bottom-[1.2rem] xl:bottom-3 -left-1 xl:left-4 text-center'>
+            <span className='bg-[--clr-green-01] text-white py-1 px-2 rounded-full text-[0.75rem] font-gothamBook absolute bottom-[0.8rem] xl:bottom-3 -left-1 xl:left-4 text-center'>
               {items < 100 ? items : '99+'}
             </span>
             <a href='/checkout'>
