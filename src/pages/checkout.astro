@@ -1,0 +1,12 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import FormSection from '@/components/checkout/FormSection';
+---
+
+<MainLayout>
+  <PageHeader pageUrl='/checkout' title='Check Out' />
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
+    <FormSection client:load />
+  </div>
+</MainLayout>
