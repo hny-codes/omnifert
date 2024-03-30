@@ -20,7 +20,10 @@ export const cartItems = persistentAtom<CartItem[]>('cart', [], {
 });
 
 // Function to add item to Cart
-type ItemDisplay = Pick<CartItem, 'id' | 'image' | 'quantity' | 'title' | 'price'>;
+type ItemDisplay = Pick<
+  CartItem,
+  'id' | 'image' | 'quantity' | 'title' | 'price'
+>;
 
 export function addToCart({ id, title, image, quantity, price }: ItemDisplay) {
   const existingItem = cartItems.get().filter((items) => items.id === id);
@@ -47,5 +50,5 @@ export const cartQuantity = computed(cartItems, (items) => {
 });
 
 export const cartPrice = computed(cartItems, (items) => {
-  return items.reduce((total, item) => total + item.price * item.quantity, 0)
-})
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
+});
