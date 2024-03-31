@@ -109,14 +109,15 @@
   * {
     @apply border-border;
   }
+  /* https://github.com/shadcn-ui/ui/issues/977 */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-w-full;
   }
 
   /* REMOVE arrows for numbers input */
   /* https://stackoverflow.com/a/71297126 */
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
