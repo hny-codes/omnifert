@@ -1,7 +1,7 @@
 ---
 type Props = {
   pageUrl: string;
-  title: 'About Us' | 'Check Out';
+  title: 'About Us' | 'Check Out' | 'Shop';
 };
 
 const { pageUrl, title } = Astro.props;
@@ -11,6 +11,7 @@ const bg = (() => {
     case 'About Us':
       return 'bg-header-about';
     case 'Check Out':
+    case 'Shop':
       return 'bg-header-checkout';
     default:
       return;
@@ -24,9 +25,9 @@ const bg = (() => {
   >
     <h1 class='text-6xl mb-8'>{title}</h1>
     <div class='flex gap-4 text-[18px]'>
-      <h2><a href='/' class="hover:underline">Home</a></h2>
+      <h2><a href='/' class='hover:underline'>Home</a></h2>
       <span>| |</span>
-      <h2><a href={`${pageUrl}`} class="hover:underline">{title}</a></h2>
+      <h2><a href={`${pageUrl}`} class='hover:underline'>{title}</a></h2>
     </div>
   </div>
 </section>
