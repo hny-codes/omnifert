@@ -1,0 +1,37 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import ShopItems from '@/components/shop/ShopItems';
+
+export type Item = {
+  title: string;
+  price: number;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+  };
+  alt: string;
+  slug: string;
+};
+
+const allItems = await getCollection('items');
+
+const itemList: Item[] = allItems.map((item) => {
+  return {
+    title: item.data.title,
+    price: item.data.price,
+    image: item.data.image,
+    alt: item.data.imageAlt,
+    slug: item.data.slug,
+  };
+});
+---
+
+<MainLayout>
+  <PageHeader pageUrl={'/shop'} title={'Shop'} />
+  <ShopItems client:load itemList={itemList} />
+</MainLayout>
