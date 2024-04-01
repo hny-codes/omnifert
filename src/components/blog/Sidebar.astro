@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import SearchBar from './SearchBar';
+import Calender from '@/assets/articles/calender.png';
+
+const allArticles = await getCollection('articles');
+const recentArticles = allArticles.slice(-4);
+
+---
+
+<aside class="max-w-[370px] mx-auto">
+  <SearchBar client:load />
+  <div class="py-8 relative border px-8">
+    <h3 class="font-gothamRounded text-2xl font-bold text-[--clr-green-03] relative border-b-4 mb-10 pb-6
+    before:absolute before:w-[50px] before:h-[3px] before:bg-[--clr-green-01] before:-bottom-1
+    ">Recent Posts</h3>
+    <ul class="">
+      {recentArticles.map(article => (
+        <li class="mb-4">
+          <a href={article.slug} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
+            <div class="">
+              <img src={article.data.image} alt={article.data.alt} class="h-[70px] w-[70px] object-cover">
+            </div>  
+            <div>
+              <h4 class="font-gothamRounded text-[--clr-green-03] font-medium line-clamp-2">{article.data.title}</h4>
+              <div class="flex gap-2 items-center mt-0.5">
+                <img src={Calender.src} alt="" class="" >
+                <p class="font-montserrat text-sm uppercase font-medium mt-0.5">{article.data.date}</p>
+              </div>
+            </div>
+          </a>  
+        </li>))}
+    </ul>
+  </div>
+</aside>
