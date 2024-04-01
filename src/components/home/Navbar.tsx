@@ -46,10 +46,10 @@ export default function Navbar() {
               <Menu />
             </DropdownMenuTrigger>
             <DropdownMenuContent className='flex flex-col gap-2 text-center'>
-              <a href='/' className='py-2'>
+              <a href='/' className='py-2 hover:text-[--clr-green-01]'>
                 Home
               </a>
-              <a href='/about' className='py-2'>
+              <a href='/about' className='py-2 hover:text-[--clr-green-01]'>
                 About Us
               </a>
 
@@ -71,10 +71,13 @@ export default function Navbar() {
                   </svg>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='flex flex-col gap-4 text-center'>
-                  <a href='/shop' className='font-bold text-[--clr-green-01]'>
+                  <a
+                    href='/shop'
+                    className='font-bold hover:text-[--clr-green-01]'
+                  >
                     Shop All
                   </a>
-                  <a href='/'>Product 1</a>
+                  {/* <a href='/'>Product 1</a> */}
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -96,10 +99,12 @@ export default function Navbar() {
                   </svg>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='flex flex-col gap-4 text-center'>
-                  <a href='/media' className='font-bold text-[--clr-green-01]'>
+                  <a href='/' className='font-bold hover:text-[--clr-green-01]'>
                     All Media
                   </a>
-                  <a href='/'>Media 1</a>
+                  <a href='/' className='hover:text-[--clr-green-01]'>
+                    Media 1
+                  </a>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -121,16 +126,25 @@ export default function Navbar() {
                   </svg>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='flex flex-col gap-4 text-center'>
-                  <a href='/news' className='font-bold text-[--clr-green-01]'>
-                    All News
+                  <a
+                    href='/blog'
+                    className='font-bold hover:text-[--clr-green-01]'
+                  >
+                    All Blog Articles
                   </a>
-                  <a href='/'>News 1</a>
-                  <a href='/'>News 2</a>
-                  <a href='/'>News 3</a>
+                  <a href='/' className='hover:text-[--clr-green-01]'>
+                    News 1
+                  </a>
+                  <a href='/' className='hover:text-[--clr-green-01]'>
+                    News 2
+                  </a>
+                  <a href='/' className='hover:text-[--clr-green-01]'>
+                    News 3
+                  </a>
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <a href='/' className='py-2'>
+              <a href='/contact' className='py-2 hover:text-[--clr-green-01]'>
                 Contact Us
               </a>
             </DropdownMenuContent>
@@ -158,13 +172,13 @@ export default function Navbar() {
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <li>
+                      {/* <li>
                         <NavigationMenuLink>
                           <a href='/' className='menu-item'>
                             Product 1
                           </a>
                         </NavigationMenuLink>
-                      </li>
+                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -186,13 +200,13 @@ export default function Navbar() {
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <li>
+                      {/* <li>
                         <NavigationMenuLink>
                           <a href='/' className='menu-item'>
                             Media 1
                           </a>
                         </NavigationMenuLink>
-                      </li>
+                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -201,20 +215,20 @@ export default function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>News & Media</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>News & Articles</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className='menu'>
                       <li>
                         <NavigationMenuLink>
                           <a
-                            href='/'
+                            href='/blog'
                             className='font-bold hover:text-[--clr-green-01]'
                           >
-                            All News & Media
+                            All Blog Articles
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <li>
+                      {/* <li>
                         <NavigationMenuLink>
                           <a href='/' className='menu-item'>
                             Article 1
@@ -234,13 +248,13 @@ export default function Navbar() {
                             Article 3
                           </a>
                         </NavigationMenuLink>
-                      </li>
+                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <a href='contact' className='link'>
+            <a href='/contact' className='link'>
               Contact Us
             </a>
           </div>
