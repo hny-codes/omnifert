@@ -1,7 +1,7 @@
 ---
 type Props = {
   pageUrl: string;
-  title: 'About Us' | 'Check Out' | 'Shop';
+  title: 'About Us' | 'Check Out' | 'Shop' | 'Blog';
 };
 
 const { pageUrl, title } = Astro.props;
@@ -13,6 +13,8 @@ const bg = (() => {
     case 'Check Out':
     case 'Shop':
       return 'bg-header-checkout';
+    case 'Blog':
+      return 'bg-header-blog';
     default:
       return;
   }
