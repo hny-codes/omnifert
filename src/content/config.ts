@@ -11,6 +11,7 @@ const articleCollection = defineCollection({
       date: z.string(),
       image: image(),
       imageAlt: z.string(),
+      popular: z.boolean(),
     }),
 });
 
@@ -19,10 +20,8 @@ const latestCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.string(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }),
+    image: z.string(),
+    imageAlt: z.string(),
   }),
 });
 

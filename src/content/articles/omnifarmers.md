@@ -4,6 +4,7 @@ date: 'September 23, 2023'
 author: 'OmniFert'
 image: src/assets/articles/article1.png
 imageAlt: 'farmers'
+popular: true
 slug: posts/omnifarmers
 ---
 
