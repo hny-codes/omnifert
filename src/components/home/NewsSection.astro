@@ -4,7 +4,9 @@ import DateIcon from '../../assets/articles/post-check.png';
 import CommentIcon from '../../assets/articles/comment.png';
 import { getCollection, getEntry } from 'astro:content';
 
-const allArticles = await getCollection('articles');
+const allArticles = await getCollection('articles', ({ data }) => {
+  return data.popular === true;
+});
 ---
 
 <section class='py-28 bg-[--clr-white-02]'>
