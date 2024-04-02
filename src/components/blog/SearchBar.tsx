@@ -8,7 +8,7 @@ export default function SearchBar() {
       <Input
         type='text'
         placeholder='Search'
-        className='placeholder:text-sm bg-[#F4F5F0] rounded-none py-8 pl-8'
+        className='placeholder:text-sm bg-[#F4F5F0] rounded-none py-[1.93rem] pl-8'
       />
 
       <Button className='rounded-none bg-[--clr-green-01] p-8'>
