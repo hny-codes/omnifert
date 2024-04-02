@@ -4,7 +4,7 @@ import SearchIcon from '@/assets/blog/search.png';
 
 export default function SearchBar() {
   return (
-    <form action='' className='font-montserrat flex py-8 border px-8 shadow-sm'>
+    <form action='' className='font-montserrat flex py-8 border px-8 shadow-lg'>
       <Input
         type='text'
         placeholder='Search'
