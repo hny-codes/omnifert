@@ -3,6 +3,10 @@ import { getCollection, getEntry } from 'astro:content';
 import OmniImg from 'src/assets/articles/article1.png';
 import EnvImg from 'src/assets/articles/article2.png';
 import StandardImg from 'src/assets/articles/article3.png';
+import PolicyImg from 'src/assets/articles/article7.png';
+import SpeechImg from 'src/assets/articles/article6.png';
+import PressImg from 'src/assets/articles/article4.png';
+import FarmersPressImg from 'src/assets/articles/article5.png';
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
 import DateIcon from '../../assets/articles/post-check.png';
 import CommentIcon from '../../assets/articles/comment.png';
@@ -38,6 +42,14 @@ function grabImage() {
       return { img: EnvImg, alt: 'Environment image' };
     case 'standards':
       return { img: StandardImg, alt: 'Standard Image' };
+    case 'agriculture_and_government_policy':
+      return { img: PolicyImg, alt: 'policy image' };
+    case 'press':
+      return { img: PressImg, alt: 'press image' };
+    case 'ceo-speech':
+      return { img: SpeechImg, alt: 'ceo speech image' };
+    case 'farmers_press':
+      return { img: FarmersPressImg, alt: 'farmers press image' };
   }
 }
 ---
