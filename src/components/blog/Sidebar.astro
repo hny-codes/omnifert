@@ -8,9 +8,9 @@ const recentArticles = allArticles.slice(-4);
 
 ---
 
-<aside class="max-w-[370px] mx-auto">
+<aside class="max-w-[370px] mx-auto md:order-2">
   <SearchBar client:load />
-  <div class="py-8 relative border px-8 my-12 shadow-lg">
+  <div class="py-8 relative border px-8 my-12 shadow-lg hidden md:block">
     <h3 class="font-gothamRounded text-2xl font-bold text-[--clr-green-03] relative border-b-4 mb-10 pb-6
     before:absolute before:w-[50px] before:h-[3px] before:bg-[--clr-green-01] before:-bottom-1
     ">Recent Posts</h3>
