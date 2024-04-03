@@ -1,0 +1,173 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Sidebar from '@/components/blog/Sidebar.astro';
+import DateIcon from '../../assets/articles/post-check.png';
+import CommentIcon from '../../assets/articles/comment.png';
+import AuthorIcon from '../../assets/articles/author.svg';
+import { Button } from '@/components/ui/button';
+import { getCollection } from 'astro:content';
+
+type Article = {
+  id: string;
+  body: string;
+  data: ArticleData;
+};
+
+type ArticleData = {
+  title: string;
+  slug: string;
+  author: string;
+  date: string;
+  data: string;
+  image: string;
+  imageAlt: string;
+  popular: boolean;
+};
+
+export async function getStaticPaths({ paginate }: any) {
+  const allArticles = await getCollection('articles');
+
+  const articles = allArticles.map((article) => ({
+    slug: article.data.slug,
+    id: article.id,
+    title: article.data.title,
+    author: article.data.author,
+    image: article.data.image,
+    imageAlt: article.data.imageAlt,
+    popular: article.data.popular,
+  }));
+
+  const paths = articles.flatMap((article) => {
+    return paginate(allArticles, {
+      pageSize: 3,
+      params: { slug: String(article.slug).split('/')[1] },
+    });
+  });
+
+  // return paginate(allArticles, { pageSize: 3 });
+  return paths;
+}
+
+const params = Astro.params;
+const { page }: any = Astro.props;
+console.log(params);
+---
+
+<MainLayout>
+  <PageHeader pageUrl={'/blog'} title='Blog' />
+  <!-- <div>
+    <a href={page.url.prev}>Back</a>
+    <a href={page.url.next}>Next</a>
+  </div> -->
+  <!-- {
+    page.data.map((item) => (
+      <a href={item.slug} class='max-w-[760px] mx-auto'>
+        <p>{item.slug}</p>
+        <p>{item.id}</p>
+        <p>{item.title}</p>
+        <p>{item.image}</p>
+        <img src={item.image} alt='NO IMAGE' />
+      </a>
+    ))
+  } -->
+
+  <div class='px-4 mt-20'>
+    <div class='max-w-[--max-width-content] mx-auto grid grid-cols-[1fr_370px]'>
+      <Sidebar />
+      <ul class='max-w-[760px] mx-auto md:order-1'>
+        {
+          page.data.map((article: Article) => (
+            <li>
+              <img src={article.data.image} alt={article.data.imageAlt} />
+              <div class='flex gap-2 mt-6 mb-4 text-[--clr-font] font-montserrat font-medium text-sm text-[0.938rem]'>
+                <div class='flex items-center justify-center gap-2'>
+                  <img src={DateIcon.src} alt='' />
+                  <p>{article.data.date}</p>
+                </div>
+                <div class='flex items-center justify-center gap-2'>
+                  <img src={AuthorIcon.src} alt='' />
+                  <p>{article.data.author}</p>
+                </div>
+                <div class='flex items-center justify-center gap-2'>
+                  <img src={CommentIcon.src} alt='' />
+                  <p>No comments</p>
+                </div>
+              </div>
+              <h2 class='font-gothamRounded font-bold text-[2rem] text-[--clr-green-03]'>
+                {article.data.title}
+              </h2>
+              <p class='font-montserrat text-sm text-[--clr-font] leading-loose my-4'>
+                {article.body}
+              </p>
+              <a href={article.data.slug}>
+                <Button
+                  variant={'leaf'}
+                  size={'leafLg'}
+                  className='tracking-widest font-gothamRounded font-medium mt-2 mb-8'
+                >
+                  READ MORE
+                </Button>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <div
+        class='flex gap-4 font-montserrat font-medium mb-10 mt-4 max-w-[--max-width-content] mx-auto px-10'
+      >
+        <!-- Back button -->
+        {
+          page.currentPage !== 1 ? (
+            <a href={`${Astro.url.pathname.slice(0, -2)}`}>
+              <Button className='rounded-full py-4 w-[60px] h-[60px] text-center border bg-white text-[--clr-font] text-3xl'>
+                «
+              </Button>
+            </a>
+          ) : null
+        }
+        <!-- Pages -->
+        {
+          page.url.prev ? (
+            <a href={page.url.prev}>
+              <Button className='rounded-full py-4 w-[60px] h-[60px] text-center border bg-white text-[--clr-font]'>
+                {page.currentPage - 1}
+              </Button>
+            </a>
+          ) : null
+        }
+        {
+          (
+            <a href={page.url.current}>
+              <Button className='rounded-full py-4 w-[60px] h-[60px] text-center border bg-[--clr-green-01] text-white'>
+                {page.currentPage}
+              </Button>
+            </a>
+          )
+        }
+        {
+          page.url.next ? (
+            <a href={page.url.next}>
+              <Button className='rounded-full py-4 w-[60px] h-[60px] text-center border bg-white text-[--clr-font]'>
+                {page.currentPage + 1}
+              </Button>
+            </a>
+          ) : null
+        }
+
+        <!-- Next button -->
+        {
+          page.currentPage != page.lastPage ? (
+            <a href={`${page.url.current}/${page.lastPage}`}>
+              <Button className='rounded-full py-4 w-[60px] h-[60px] text-center border bg-white text-[--clr-font] text-3xl'>
+                »
+              </Button>
+            </a>
+          ) : null
+        }
+      </div>
+    </div>
+  </div>
+</MainLayout>
