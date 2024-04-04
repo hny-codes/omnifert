@@ -8,6 +8,7 @@ module.exports = {
       'header-about': 'url("src/assets/about/about.png")',
       'header-checkout': 'url("src/assets/products/banner.png")',
       'header-blog': 'url("src/assets/blog/blog.png")',
+      'header-contact': 'url("src/assets/contact/contact.png")',
     },
     screens: {
       sm: '640px',

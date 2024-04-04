@@ -1,7 +1,7 @@
 ---
 type Props = {
   pageUrl: string;
-  title: 'About Us' | 'Check Out' | 'Shop' | 'Blog';
+  title: 'About Us' | 'Check Out' | 'Shop' | 'Blog' | 'Contact';
 };
 
 const { pageUrl, title } = Astro.props;
@@ -15,13 +15,15 @@ const bg = (() => {
       return 'bg-header-checkout';
     case 'Blog':
       return 'bg-header-blog';
-    default:
-      return 'bg-header-blog';
+    case 'Contact':
+      return 'bg-header-contact';
   }
 })();
 ---
 
-<section class={`${bg} bg-no-repeat bg-cover bg-center mt-20 h-[440px]`}>
+<section
+  class={`${bg} bg-no-repeat bg-cover bg-center ${title === 'Blog' || (title === 'Contact' && 'bg-[center_top_-8rem]')} mt-20 h-[440px]`}
+>
   <div
     class='px-4 bg-black/50 h-full w-full flex flex-col text-[--clr-white-01] justify-center items-center font-gothamRounded text-center'
   >
