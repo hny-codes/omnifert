@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import MailIcon from '@/assets/contact/mail.png';
+import PhoneIcon from '@/assets/contact/phone.png';
+import LocationIcon from '@/assets/contact/location.png';
+import ContactCard from './ContactCard';
+
+// Email Card
+const emailHeader = 'Email Address';
+const emailContact = 'sales@omnifert.com';
+
+// Location Card
+const locationHeader = 'Main Office';
+const locationContact = 'No.28 Church Cres St, North Labone, Accra, Ghana';
+
+// Phone Card
+const phoneHeader = 'Phone Number';
+const phoneContact = '+233 302 767 400';
+---
+
+<section class='my-20'>
+  <div class='gap-8 flex flex-col items-center lg:flex-row'>
+    <ContactCard header={emailHeader} contact={emailContact} icon={MailIcon} />
+    <ContactCard
+      header={locationHeader}
+      contact={locationContact}
+      icon={LocationIcon}
+    />
+    <ContactCard header={phoneHeader} contact={phoneContact} icon={PhoneIcon} />
+  </div>
+</section>

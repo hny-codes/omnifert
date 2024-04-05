@@ -1,8 +1,12 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro"
-import PageHeader from "@/components/PageHeader.astro"
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ContactSection from '@/components/contact/ContactSection.astro';
 ---
 
 <MainLayout>
-  <PageHeader pageUrl="/contact" title="Contact" />
+  <PageHeader pageUrl='/contact' title='Contact' />
+  <div class="px-4 max-w-[--max-width-content] mx-auto">
+    <ContactSection />
+  </div>
 </MainLayout>
