@@ -74,15 +74,15 @@ console.log(params);
 
   <div class='mt-20'>
     <div
-      class='px-4 max-w-[--max-width-content] mx-auto grid grid-cols-[1fr_370px] gap-12'
+      class='px-4 max-w-[--max-width-content] mx-auto lg:grid grid-cols-[1fr_370px] gap-12'
     >
       <Sidebar />
-      <ul class='mx-auto md:order-1'>
+      <ul class='mx-auto md:order-1 mt-10 lg:mt-0'>
         {
           page.data.map((article: Article) => (
             <li>
               <img src={article.data.image} alt={article.data.imageAlt} />
-              <div class='flex gap-2 mt-6 mb-4 text-[--clr-font] font-montserrat font-medium text-sm text-[0.938rem]'>
+              <div class='flex gap-2 mt-6 mb-4 text-[--clr-font] font-montserrat font-medium text-sm text-[0.938rem] flex-wrap'>
                 <div class='flex items-center justify-center gap-2'>
                   <img src={DateIcon.src} alt='' />
                   <p>{article.data.date}</p>
