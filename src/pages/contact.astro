@@ -2,11 +2,16 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import ContactSection from '@/components/contact/ContactSection.astro';
+import MessageSection from '@/components/contact/MessageSection.astro';
+import Map from '@/assets/contact/map.png';
+import Image from 'astro/components/Image.astro';
 ---
 
 <MainLayout>
   <PageHeader pageUrl='/contact' title='Contact' />
-  <div class="px-4 max-w-[--max-width-content] mx-auto">
+  <div class='px-4 max-w-[--max-width-content] mx-auto'>
     <ContactSection />
   </div>
+  <MessageSection />
+  <Image src={Map} alt={'omnifert location'} class={'object-cover h-[468px]'} />
 </MainLayout>
