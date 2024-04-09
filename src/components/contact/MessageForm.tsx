@@ -15,9 +15,18 @@ import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 
 const formSchema = z.object({
-  fullname: z.string().min(2).max(50),
+  fullname: z
+    .string()
+    .min(2, {
+      message: 'Name must be longer than 2 characters.',
+    })
+    .max(50, {
+      message: 'Name cannot exceed 50 characters.',
+    }),
   email: z.string().email(),
-  subject: z.string().min(2),
+  subject: z.string().min(2, {
+    message: 'Subject must be longer than 2 characters.',
+  }),
   body: z
     .string()
     .min(10, {
