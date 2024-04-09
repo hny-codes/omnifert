@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import MessageForm from './MessageForm';
+import MessageImage from '@/assets/contact/message-image.png';
+---
+
+<section class='bg-[#F4F5F0]'>
+  <div class='md:grid grid-cols-[600px_1fr] gap-10'>
+    <Image
+      src={MessageImage}
+      alt={'message'}
+      class={'object-cover h-[839.59px]'}
+    />
+    <MessageForm client:load />
+  </div>
+</section>
