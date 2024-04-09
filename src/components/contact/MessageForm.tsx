@@ -56,7 +56,7 @@ export default function MessageForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='space-y-8 px-4 py-10 md:mx-2 2xl:mx-20 my-10'
+        className='space-y-8 px-4 py-10 md:mx-2 2xl:mx-20 mt-14'
       >
         <div>
           <strong className='font-gothamBook text-[--clr-green-01] text-lg'>
