@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import CalenderIcon from '@/assets/articles/calender.png';
+
+type Props = {
+  img: string;
+  imgAlt: string;
+  title: string;
+  date: string;
+  slug: string;
+};
+
+const { img, imgAlt, title, date, slug } = Astro.props;
+---
+
+<li class='mt-6'>
+  <a href={slug} class='grid grid-cols-[70px_1fr] gap-4'>
+    <div class="h-[70px] w-[70px]">
+      <img src={img} alt={imgAlt} class='w-full h-full object-[25%_50%] object-cover ' />
+    </div>
+    <div class='flex flex-col justify-between'>
+      <h3 class='font-gothamRounded font-medium line-clamp-2'>{title}</h3>
+      <div class='flex items-center gap-2 text-sm'>
+        <Image src={CalenderIcon} alt={''} />
+        <p>{date}</p>
+      </div>
+    </div>
+  </a>
+</li>

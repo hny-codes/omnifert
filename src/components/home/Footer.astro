@@ -5,6 +5,12 @@ import Facebook from '../../assets/home/facebook.png';
 import LinkedIn from '../../assets/home/linkedin.png';
 import Newsletter from '../../assets/home/newsletter.png';
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import LatestPost from './LatestPost.astro';
+
+const allArticles = await getCollection('articles');
+
+const latestArticles = allArticles.slice(0, 3);
 ---
 
 <footer class='bg-[--clr-green-03] pt-12 pb-6'>
@@ -58,6 +64,19 @@ import { Image } from 'astro:assets';
       </div>
       <div>
         <h3 class='font-gothamRounded text-2xl'>Latest Posts</h3>
+        <ul>
+          {
+            latestArticles.map((article) => (
+              <LatestPost
+                img={article.data.image}
+                imgAlt={article.data.imageAlt}
+                title={article.data.title}
+                date={article.data.date}
+                slug={`/blog/${article.slug}`}
+              />
+            ))
+          }
+        </ul>
       </div>
       <div class='flex flex-col items-center lg:items-start gap-4'>
         <h3 class='font-gothamRounded text-2xl'>Newsletter</h3>
