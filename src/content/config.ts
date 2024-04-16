@@ -46,7 +46,7 @@ const itemsCollection = defineCollection({
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  article: articleCollection,
+  articles: articleCollection,
   latest: latestCollection,
   items: itemsCollection,
 };
