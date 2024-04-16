@@ -2,7 +2,7 @@
 title: 'Omnifert Press Release Farmers Day 2017'
 date: 'September 23, 2023'
 author: 'OmniFert'
-image: src/assets/articles/article5.png
+image: '../../assets/articles/article5.png'
 imageAlt: 'farmers press statement'
 popular: false
 slug: posts/farmers_press

@@ -2,7 +2,7 @@
 title: 'Press Statement Omnifert'
 date: 'September 23, 2023'
 author: 'OmniFert'
-image: src/assets/articles/article4.png
+image: '../../assets/articles/article4.png'
 imageAlt: 'press statement'
 popular: false
 slug: posts/press

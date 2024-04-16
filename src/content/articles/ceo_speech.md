@@ -2,7 +2,7 @@
 title: CEO's Speech for Omnifert
 date: 'September 23, 2023'
 author: 'OmniFert'
-image: src/assets/articles/article6.png
+image: '../../assets/articles/article6.png'
 imageAlt: 'ceo speech'
 popular: false
 slug: posts/ceo-speech

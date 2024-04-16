@@ -2,7 +2,7 @@
 title: 'Agriculture and Government Policy'
 date: 'September 23, 2023'
 author: 'OmniFert'
-image: src/assets/articles/article7.png
+image: '../../assets/articles/article7.png'
 imageAlt: 'agriculture government policy'
 popular: false
 slug: posts/agriculture_and_government_policy

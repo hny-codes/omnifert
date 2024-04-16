@@ -2,7 +2,7 @@
 title: 'Agriculture, Trade & Regulatory Standards in Ghana'
 date: 'September 23, 2023'
 author: 'OmniFert'
-image: src/assets/articles/article3.png
+image: '../../assets/articles/article3.png'
 imageAlt: 'agriculture'
 popular: true
 slug: posts/standards
