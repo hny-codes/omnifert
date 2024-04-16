@@ -4,7 +4,12 @@ import CalenderIcon from '@/assets/articles/calender.png';
 import { imageFactory } from '@/util/imageFactory';
 
 type Props = {
-  img: string;
+  img: {
+    height: number;
+    src: string;
+    width: number;
+    format: 'avif' | 'png' | 'webp' | 'jpeg' | 'jpg' | 'svg' | 'tiff' | 'gif';
+  };
   imgAlt: string;
   title: string;
   date: string;
