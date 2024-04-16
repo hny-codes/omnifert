@@ -1,4 +1,6 @@
 ---
+import BlogImage from '@/assets/blog/blog.png';
+
 type Props = {
   pageUrl: string;
   title: 'About Us' | 'Check Out' | 'Shop' | 'Blog' | 'Contact';
@@ -14,7 +16,7 @@ const bg = (() => {
     case 'Shop':
       return 'bg-header-checkout';
     case 'Blog':
-      return 'bg-header-blog';
+      return 'bg-[url(../assets/blog/blog.png)]';
     case 'Contact':
       return 'bg-header-contact';
   }
