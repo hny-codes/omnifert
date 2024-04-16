@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 const allArticles = await getCollection('articles');
 const recentArticles = allArticles.slice(-4);
 
+const baseUrlCheck = String(Astro.url).split('/').at(-1) === 'blog';
 ---
 
 <aside class="max-w-[370px] mx-auto md:order-2">
@@ -18,7 +19,7 @@ const recentArticles = allArticles.slice(-4);
     <ul class="">
       {recentArticles.map(article => (
         <li class="mb-4">
-          <a href={`blog/${article.slug}`} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
+          <a href={!baseUrlCheck ? `${article.slug}` : `blog/${article.slug}`} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
             <div class="">
               <Image src={article.data.image} alt={article.data.imageAlt} class="h-[70px] w-[70px] object-cover">
             </div>  

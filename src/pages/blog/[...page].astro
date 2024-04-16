@@ -34,7 +34,7 @@ export async function getStaticPaths({ paginate }: any) {
 }
 
 const { page }: any = Astro.props;
-console.log(page.data);
+const baseUrlCheck = String(Astro.url).split('/').at(-1) === 'blog';
 ---
 
 <MainLayout>
@@ -69,7 +69,7 @@ console.log(page.data);
               <p class='font-montserrat text-sm text-[--clr-font] leading-loose my-4'>
                 {article.body}
               </p>
-              <a href={`blog/${article.slug}`}>
+              <a href={!baseUrlCheck ? `${article.slug}` : `blog/${article.slug}`}>
                 <Button
                   variant={'leaf'}
                   size={'leafLg'}
