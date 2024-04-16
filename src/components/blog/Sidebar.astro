@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import SearchBar from './SearchBar';
 import Calender from '@/assets/articles/calender.png';
+import { Image } from 'astro:assets';
 
 const allArticles = await getCollection('articles');
 const recentArticles = allArticles.slice(-4);
@@ -17,9 +18,9 @@ const recentArticles = allArticles.slice(-4);
     <ul class="">
       {recentArticles.map(article => (
         <li class="mb-4">
-          <a href={article.slug} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
+          <a href={`blog/${article.slug}`} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
             <div class="">
-              <img src={article.data.image} alt={article.data.alt} class="h-[70px] w-[70px] object-cover">
+              <Image src={article.data.image} alt={article.data.imageAlt} class="h-[70px] w-[70px] object-cover">
             </div>  
             <div>
               <h4 class="font-gothamRounded text-[--clr-green-03] font-medium line-clamp-2">{article.data.title}</h4>

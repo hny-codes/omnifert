@@ -29,7 +29,7 @@ const allArticles = await getCollection('articles', ({ data }) => {
             class='flex flex-col justify-center max-w-[370px] lg:grid 
             lg:grid-rows-[370px_minmax(0,_1fr)]_minmax(0,_1fr)]'
           >
-            <img
+            <Image
               src={article.data.image}
               alt={article.data.imageAlt}
               class='h-[201.86px] w-[370px] object-cover'

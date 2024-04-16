@@ -1,17 +1,19 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
-import PageHeader from '@/components/PageHeader.astro';
-import Sidebar from '@/components/blog/Sidebar.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Sidebar from '../../components/blog/Sidebar.astro';
 import DateIcon from '../../assets/articles/post-check.png';
 import CommentIcon from '../../assets/articles/comment.png';
 import AuthorIcon from '../../assets/articles/author.svg';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 type Article = {
   id: string;
   body: string;
   data: ArticleData;
+  slug: string;
 };
 
 type ArticleData = {
@@ -20,7 +22,7 @@ type ArticleData = {
   author: string;
   date: string;
   data: string;
-  image: string;
+  image: ImageMetadata;
   imageAlt: string;
   popular: boolean;
 };
@@ -28,60 +30,25 @@ type ArticleData = {
 export async function getStaticPaths({ paginate }: any) {
   const allArticles = await getCollection('articles');
 
-  const articles = allArticles.map((article) => ({
-    slug: article.data.slug,
-    id: article.id,
-    title: article.data.title,
-    author: article.data.author,
-    image: article.data.image,
-    imageAlt: article.data.imageAlt,
-    popular: article.data.popular,
-  }));
-
-  const paths = articles.flatMap((article) => {
-    return paginate(allArticles, {
-      pageSize: 3,
-      params: { slug: String(article.slug).split('/')[1] },
-    });
-  });
-
-  // return paginate(allArticles, { pageSize: 3 });
-  return paths;
+  return paginate(allArticles, { pageSize: 3 });
 }
 
-const params = Astro.params;
 const { page }: any = Astro.props;
-console.log(params);
+console.log(page.data);
 ---
 
 <MainLayout>
-  <PageHeader pageUrl={'/blog'} title='Blog' />
-  <!-- <div>
-    <a href={page.url.prev}>Back</a>
-    <a href={page.url.next}>Next</a>
-  </div> -->
-  <!-- {
-    page.data.map((item) => (
-      <a href={item.slug} class='max-w-[760px] mx-auto'>
-        <p>{item.slug}</p>
-        <p>{item.id}</p>
-        <p>{item.title}</p>
-        <p>{item.image}</p>
-        <img src={item.image} alt='NO IMAGE' />
-      </a>
-    ))
-  } -->
-
   <div class='mt-20'>
+    <PageHeader pageUrl='/blog' title='Blog' />
     <div
-      class='px-4 max-w-[--max-width-content] mx-auto lg:grid grid-cols-[1fr_370px] gap-12'
+      class='px-4 max-w-[--max-width-content] mx-auto lg:grid grid-cols-[1fr_370px] gap-12 mt-20'
     >
       <Sidebar />
       <ul class='mx-auto md:order-1 mt-10 lg:mt-0'>
         {
           page.data.map((article: Article) => (
             <li>
-              <img src={article.data.image} alt={article.data.imageAlt} />
+              <Image src={article.data.image} alt={article.data.imageAlt} />
               <div class='flex gap-2 mt-6 mb-4 text-[--clr-font] font-montserrat font-medium text-sm text-[0.938rem] flex-wrap'>
                 <div class='flex items-center justify-center gap-2'>
                   <img src={DateIcon.src} alt='' />
@@ -102,7 +69,7 @@ console.log(params);
               <p class='font-montserrat text-sm text-[--clr-font] leading-loose my-4'>
                 {article.body}
               </p>
-              <a href={article.data.slug}>
+              <a href={`blog/${article.slug}`}>
                 <Button
                   variant={'leaf'}
                   size={'leafLg'}
