@@ -19,7 +19,7 @@ const currentUrl = capitalizeLetter(String(Astro.url.pathname).split('/')[1]);
     <meta name='generator' content={Astro.generator} />
     <title>OmniFert {currentUrl ? `- ${currentUrl}` : ''}</title>
   </head>
-  <body class='relative'>
+  <body class='relative overflow-x-hidden'>
     <header class='bg-[--clr-green-01] fixed w-full top-0 z-50'>
       <ContactHeader />
       <Navbar client:load />
