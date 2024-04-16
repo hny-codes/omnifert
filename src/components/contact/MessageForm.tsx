@@ -66,7 +66,7 @@ export default function MessageForm() {
             Send us a message
           </h2>
         </div>
-        <div className='font-gothamBook [&>*]:my-4 md:[&>*]:my-0 md:flex gap-4 w-full'>
+        <div className='font-gothamBook [&>*]:my-4 lg:[&>*]:my-0 lg:flex gap-4 w-full'>
           <FormField
             control={form.control}
             name='fullname'
