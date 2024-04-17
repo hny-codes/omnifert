@@ -4,7 +4,6 @@ import ProductLayout from '../../layouts/ProductLayout.astro';
 import { Image } from 'astro:assets';
 import Banner from '@/assets/products/banner.png';
 import StarIcon from '../../assets/products/star.png';
-import { Button } from '@/components/ui/button';
 import TabSection from '@/components/products/TabSection';
 import RanProductSection from '@/components/products/RanProductSection.astro';
 import ProductForm from '@/components/products/ProductForm';
@@ -31,7 +30,6 @@ export async function getStaticPaths() {
   });
 }
 
-const { slug } = Astro.params;
 const {
   id,
   title,

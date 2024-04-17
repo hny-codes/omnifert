@@ -5,23 +5,17 @@ import Cart from '../../assets/home/cart.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
 import { Menu } from 'lucide-react';
-import { cartItems, cartQuantity } from '@/nanostores/cartStorePersist';
+import { cartQuantity } from '@/nanostores/cartStorePersist';
 import { useStore } from '@nanostores/react';
 import { useState, useEffect } from 'react';
 

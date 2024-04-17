@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import DateIcon from '../../assets/articles/post-check.png';
 import CommentIcon from '../../assets/articles/comment.png';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles', ({ data }) => {
   return data.popular === true;

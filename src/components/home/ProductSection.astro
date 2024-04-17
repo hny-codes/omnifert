@@ -1,6 +1,6 @@
 ---
 import { Button } from '../ui/button';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import PopularProduct from '@/components/products/PopularProduct.astro';
 
 const allPopularProducts = await getCollection('items');

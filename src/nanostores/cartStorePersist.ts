@@ -1,5 +1,5 @@
-import { atom, map, computed } from 'nanostores';
-import { persistentMap, persistentAtom } from '@nanostores/persistent';
+import { computed } from 'nanostores';
+import { persistentAtom } from '@nanostores/persistent';
 
 export type CartItem = {
   id: string;

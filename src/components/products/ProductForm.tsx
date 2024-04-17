@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import type { FormEvent } from 'react';
 import { useState, useRef } from 'react';
 import { addToCart } from '@/nanostores/cartStorePersist';
 import type { CartItem } from '@/nanostores/cartStorePersist';
