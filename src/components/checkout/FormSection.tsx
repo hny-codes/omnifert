@@ -2,10 +2,10 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
+import { ShoppingBasket } from 'lucide-react';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,6 +24,7 @@ import { useStore } from '@nanostores/react';
 import { cartItems, cartPrice } from '@/nanostores/cartStorePersist';
 import type { CartItem } from '@/nanostores/cartStorePersist';
 import { useState, useEffect } from 'react';
+import Cart from '@/assets/home/cart.png';
 
 const formSchema = z.object({
   firstName: z
@@ -36,18 +37,30 @@ const formSchema = z.object({
     .max(50, { message: 'First name must be shorter than 50 characters.' }),
   companyName: z.string().optional(),
   country: z.string(),
-  streetAddr: z.string().min(2).max(30),
+  streetAddr: z
+    .string()
+    .min(2, { message: 'Street must be longer than 2 characters.' })
+    .max(30, { message: 'Street must be shorter than 30 characters.' }),
   streetUnit: z.string().optional(),
-  city: z.string().min(2).max(50),
-  phone: z.string().min(2),
+  city: z
+    .string()
+    .min(2, { message: 'City must be longer than 2 characters.' })
+    .max(50, { message: 'City must be shorter than 50 characters.' }),
+  phone: z
+    .string()
+    .min(2, { message: 'Phone number must be longer than 2 characters.' }),
   email: z.string().email(),
-  info: z.string().max(200).optional(),
+  info: z
+    .string()
+    .max(200, { message: 'Your message must be shorter than 200 characters.' })
+    .optional(),
 });
 
 export default function FormSection() {
   const [cart, setCart] = useState<CartItem[]>();
   const [total, setTotal] = useState(0);
   const [checkout, setCheckout] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const cartStore = useStore(cartItems);
   const cartTotal = useStore(cartPrice);
@@ -70,16 +83,26 @@ export default function FormSection() {
 
   // Add stores to state to prevent hydration errors
   useEffect(() => {
-    setCart(cartStore);
-    setTotal(cartTotal);
+    // Simulate cart item loading
+    setTimeout(() => {
+      setCart(cartStore);
+      setTotal(cartTotal);
+      setLoading(true);
+    }, 500);
+
+    console.log(total);
   }, [total, cart]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     setCheckout(true);
+
+    localStorage.clear();
   }
 
-  return (
+  return !loading ? (
+    <Loading />
+  ) : total ? (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className='md:grid grid-cols-2 gap-20 my-10'>
@@ -328,9 +351,6 @@ export default function FormSection() {
             </span>
             <Button
               type='submit'
-              onClick={(e) => {
-                e.preventDefault();
-              }}
               className='w-fit bg-[--clr-green-01] font-montserrat font-semibold capitalize rounded-none text-white my-4 '
             >
               Place Order
@@ -339,5 +359,45 @@ export default function FormSection() {
         </div>
       </form>
     </Form>
+  ) : (
+    <EmptyCart />
   );
 }
+
+const EmptyCart = () => (
+  <section className='px-4 text-center my-32'>
+    <div className=''>
+      <h2 className='font-gothamBold text-4xl xl:text-6xl text-[--clr-green-03] relative'>
+        Your Cart is Empty!
+      </h2>
+
+      <p className='font-montserrat text-xl xl:text-3xl font-medium text-[--clr-green-03] mt-4'>
+        Check out our shop!
+      </p>
+    </div>
+    <div className='font-montserrat flex gap-6 justify-center items-center mt-10 relative'>
+      <a
+        href='/'
+        className='hover:underline text-lg xl:text-xl text-[--clr-font]'
+      >
+        Home
+      </a>
+      <img src={Cart.src} alt='' className='h-fit -bottom-7' />
+      <a
+        href='/shop'
+        className='hover:underline text-lg xl:text-xl text-[--clr-font]'
+      >
+        Shop
+      </a>
+    </div>
+  </section>
+);
+
+const Loading = () => (
+  <div className='text-center my-32'>
+    <h2 className='font-gothamBold text-4xl xl:text-6xl text-[--clr-green-03]'>
+      Loading your cart ...
+    </h2>
+    <ShoppingBasket className='w-full h-[100px] animate-bounce mt-14 text-[--clr-green-03]' />
+  </div>
+);
