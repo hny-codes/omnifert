@@ -47,6 +47,7 @@ const formSchema = z.object({
 export default function FormSection() {
   const [cart, setCart] = useState<CartItem[]>();
   const [total, setTotal] = useState(0);
+  const [checkout, setCheckout] = useState(false);
 
   const cartStore = useStore(cartItems);
   const cartTotal = useStore(cartPrice);
@@ -75,6 +76,7 @@ export default function FormSection() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setCheckout(true);
   }
 
   return (
@@ -97,6 +99,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -112,6 +115,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -125,6 +129,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -154,6 +159,7 @@ export default function FormSection() {
                       </SelectContent>
                     </Select>
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -173,6 +179,7 @@ export default function FormSection() {
                       placeholder='House number and street name'
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -188,6 +195,7 @@ export default function FormSection() {
                       placeholder='Apartment, suite, unit, etc. (optional)'
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -204,6 +212,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -219,6 +228,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -235,6 +245,7 @@ export default function FormSection() {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -257,6 +268,7 @@ export default function FormSection() {
                       placeholder='Notes about your order, e.g. special notes for delivery.'
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -307,6 +319,13 @@ export default function FormSection() {
             in our privacy policy.
           </p>
           <div className='flex gap-4 justify-end'>
+            <span
+              className={`flex-col place-self-center bg-[--clr-green-01] text-white py-2 px-3 rounded-full animate-bounce ${
+                checkout ? 'flex' : 'hidden'
+              }`}
+            >
+              ✔
+            </span>
             <Button
               type='submit'
               onClick={(e) => {
