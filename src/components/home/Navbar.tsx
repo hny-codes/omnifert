@@ -149,6 +149,7 @@ export default function Navbar() {
               </a>
             </DropdownMenuContent>
           </DropdownMenu>
+
           <div className='hidden lg:flex items-center gap-6 lg:gap-0 xl:gap-6'>
             <a href='/' className='link'>
               Home
@@ -163,22 +164,13 @@ export default function Navbar() {
                   <NavigationMenuContent>
                     <ul className='menu'>
                       <li>
-                        <NavigationMenuLink>
-                          <a
-                            href='/shop'
-                            className='font-bold hover:text-[--clr-green-01]'
-                          >
-                            Shop All
-                          </a>
-                        </NavigationMenuLink>
+                        <a
+                          href='/shop'
+                          className='font-bold hover:text-[--clr-green-01]'
+                        >
+                          Shop All
+                        </a>
                       </li>
-                      {/* <li>
-                        <NavigationMenuLink>
-                          <a href='/' className='menu-item'>
-                            Product 1
-                          </a>
-                        </NavigationMenuLink>
-                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -191,22 +183,13 @@ export default function Navbar() {
                   <NavigationMenuContent>
                     <ul className='menu'>
                       <li>
-                        <NavigationMenuLink>
-                          <a
-                            href='/'
-                            className='font-bold hover:text-[--clr-green-01]'
-                          >
-                            All Media
-                          </a>
-                        </NavigationMenuLink>
+                        <a
+                          href='/'
+                          className='font-bold hover:text-[--clr-green-01]'
+                        >
+                          All Media
+                        </a>
                       </li>
-                      {/* <li>
-                        <NavigationMenuLink>
-                          <a href='/' className='menu-item'>
-                            Media 1
-                          </a>
-                        </NavigationMenuLink>
-                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -219,36 +202,13 @@ export default function Navbar() {
                   <NavigationMenuContent>
                     <ul className='menu'>
                       <li>
-                        <NavigationMenuLink>
-                          <a
-                            href='/blog'
-                            className='font-bold hover:text-[--clr-green-01]'
-                          >
-                            All Blog Articles
-                          </a>
-                        </NavigationMenuLink>
+                        <a
+                          href='/blog'
+                          className='font-bold hover:text-[--clr-green-01]'
+                        >
+                          All Blog Articles
+                        </a>
                       </li>
-                      {/* <li>
-                        <NavigationMenuLink>
-                          <a href='/' className='menu-item'>
-                            Article 1
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink>
-                          <a href='/' className='menu-item'>
-                            Article 2
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink>
-                          <a href='/' className='menu-item'>
-                            Article 3
-                          </a>
-                        </NavigationMenuLink>
-                      </li> */}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
