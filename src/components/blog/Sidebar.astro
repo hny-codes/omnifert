@@ -10,29 +10,46 @@ const recentArticles = allArticles.slice(-4);
 const baseUrlCheck = String(Astro.url).split('/').at(-1) === 'blog';
 ---
 
-<aside class="max-w-[370px] mx-auto md:order-2">
+<aside class='max-w-[370px] mx-auto md:order-2'>
   <SearchBar client:load />
-  <div class="py-8 relative border px-8 my-12 shadow-lg hidden md:block">
-    <h3 class="font-gothamRounded text-2xl font-bold text-[--clr-green-03] relative border-b-4 mb-10 pb-6
-    before:absolute before:w-[50px] before:h-[3px] before:bg-[--clr-green-01] before:-bottom-1
-    ">Recent Posts</h3>
-    
-    <ul class="">
-      {recentArticles.map(article => (
-        <li class="mb-4">
-          <a href={!baseUrlCheck ? `${article.slug}` : `blog/${article.slug}`} class="grid grid-cols-[70px_minmax(0,1fr)] gap-2">
-            <div class="">
-              <Image src={article.data.image} alt={article.data.imageAlt} class="h-[70px] w-[70px] object-cover">
-            </div>  
-            <div>
-              <h4 class="font-gothamRounded text-[--clr-green-03] font-medium line-clamp-2">{article.data.title}</h4>
-              <div class="flex gap-2 items-center mt-0.5">
-                <img src={Calender.src} alt="" class="" >
-                <p class="font-montserrat text-sm uppercase font-medium mt-0.5">{article.data.date}</p>
+  <div class='py-8 relative border px-8 my-12 shadow-lg hidden md:block'>
+    <h3
+      class='font-gothamRounded text-2xl font-bold text-[--clr-green-03] relative border-b-4 mb-10 pb-6
+    before:absolute before:w-[50px] before:h-[3px] before:bg-[--clr-green-01] before:-bottom-1'
+    >
+      Recent Posts
+    </h3>
+
+    <ul class=''>
+      {
+        recentArticles.map((article) => (
+          <li class='mb-4'>
+            <a
+              href={!baseUrlCheck ? `${article.slug}` : `blog/${article.slug}`}
+              class='grid grid-cols-[70px_minmax(0,1fr)] gap-2'
+            >
+              <div class=''>
+                <Image
+                  src={article.data.image}
+                  alt={article.data.imageAlt}
+                  class='h-[70px] w-[70px] object-cover'
+                />
               </div>
-            </div>
-          </a>  
-        </li>))}
+              <div class='flex flex-col justify-between'>
+                <h4 class='font-gothamRounded text-[--clr-green-03] font-medium line-clamp-2'>
+                  {article.data.title}
+                </h4>
+                <div class='flex gap-2 items-center mt-0.5'>
+                  <img src={Calender.src} alt='' class='' />
+                  <p class='font-montserrat text-sm uppercase font-medium mt-0.5'>
+                    {article.data.date}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </aside>
