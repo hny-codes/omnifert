@@ -9,14 +9,14 @@ const { pageUrl, title } = Astro.props;
 const bg = (() => {
   switch (title) {
     case 'About Us':
-      return 'bg-header-about';
+      return 'bg-[url(../assets/about/about.png)]';
     case 'Check Out':
     case 'Shop':
-      return 'bg-header-checkout';
+      return 'bg-[url(../assets/products/banner.jpg)]';
     case 'Blog':
       return 'bg-[url(../assets/blog/blog.png)]';
     case 'Contact':
-      return 'bg-header-contact';
+      return 'bg-[url(../assets/contact/contact.png)]';
   }
 })();
 ---
