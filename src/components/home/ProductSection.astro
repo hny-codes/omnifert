@@ -33,6 +33,17 @@ const allPopularProducts = await getCollection('items');
         ))
       }
     </ul>
-    <Button variant={'leaf'} size={'leafLg'}>Our catalogue</Button>
+    <Button
+      variant={'leaf'}
+      size={'leafLg'}
+      className='w-fit font-gothamLight'
+      asChild
+    >
+      <a
+        href='/shop'
+        class='bg-[--clr-green-01] text-[--clr-white-01] rounded-r-full rounded-bl-full font-bold uppercase hover:brightness-90 h-11 px-6 sm:h-16 sm:px-8 flex items-center justify-center w-fit mx-auto'
+        >Our catalogue</a
+      >
+    </Button>
   </div>
 </section>
