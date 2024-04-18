@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import CalenderIcon from '@/assets/articles/calender.png';
-import { imageFactory } from '@/util/imageFactory';
 
 type Props = {
   img: {
@@ -17,21 +16,16 @@ type Props = {
 };
 
 const { img, imgAlt, title, date, slug } = Astro.props;
-const imageObj = imageFactory(title);
 ---
 
 <li class='mt-6'>
   <a href={slug} class='grid grid-cols-[70px_1fr] gap-4'>
     <div class='h-[70px] w-[70px]'>
-      {
-        imageObj !== undefined && (
-          <Image
-            src={imageObj.image}
-            alt={imgAlt}
-            class='w-full h-full object-[25%_50%] object-cover'
-          />
-        )
-      }
+      <Image
+        src={img}
+        alt={imgAlt}
+        class='w-full h-full object-[25%_50%] object-cover'
+      />
     </div>
     <div class='flex flex-col justify-between'>
       <h3 class='font-gothamRounded font-medium line-clamp-2'>{title}</h3>
