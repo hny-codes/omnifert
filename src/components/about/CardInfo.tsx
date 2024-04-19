@@ -18,7 +18,7 @@ export default function CardInfo({ title, body, headerImg, icon }: Props) {
       <img
         className='absolute -z-10 -top-48 lg:right-8'
         src={headerImg.src}
-        alt={`${title} image`}
+        alt={`${title}`}
       />
       <CardHeader className='relative pt-16'>
         <div className='bg-white w-fit p-6 rounded-full absolute left-1/2 -translate-x-1/2 -top-12'>

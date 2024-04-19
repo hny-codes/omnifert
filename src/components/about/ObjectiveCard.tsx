@@ -15,7 +15,7 @@ export default function ObjectiveCard({ title, body, image }: Props) {
   return (
     <Card className='bg-transparent border-none shadow-none grid grid-cols-[auto_minmax(0,_1fr)] gap-2'>
       <div className='bg-[--clr-green-02] p-4 w-fit h-fit rounded-xl mt-8'>
-        <img src={image.src} alt={`${title} icon`} />
+        <img src={image.src} alt={`${title} icon`} loading='lazy' />
       </div>
       <div className='grid grid-rows-none md:grid-rows-[125px_1fr] lg:grid-rows-[100px_1fr]'>
         <CardHeader>
