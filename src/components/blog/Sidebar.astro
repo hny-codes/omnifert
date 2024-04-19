@@ -33,6 +33,7 @@ const baseUrlCheck = String(Astro.url).split('/').at(-1) === 'blog';
                   src={article.data.image}
                   alt={article.data.imageAlt}
                   class='h-[70px] w-[70px] object-cover'
+                  loading={'eager'}
                 />
               </div>
               <div class='flex flex-col justify-between'>
