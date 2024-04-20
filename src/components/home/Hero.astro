@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 ---
 
 <section
-  class='bg-[url("../assets/home/bg.jpg")] h-screen bg-no-repeat bg-cover bg-center relative'
+  class='bg-[url("../assets/home/bg.jpg")] bg-no-repeat bg-cover bg-center relative'
 >
   <Image
     src={Leaf}
@@ -13,12 +13,12 @@ import { Image } from 'astro:assets';
     class={'absolute top-32 lg:top-36'}
     loading={'eager'}
   />
-  <div class='px-4 bg-black/50 h-screen flex items-center'>
+  <div class='px-4 bg-black/50 py-52 flex items-center h-screen md:h-auto xl:h-screen'>
     <div
       class='mt-20 text-[--clr-white-01] text-center lg:text-left max-w-[--max-width-content] mx-auto flex-grow'
     >
       <h1
-        class='text-5xl sm:text-7xl md:text-8xl sm:w-4/5 lg:w-3/5 sm:mx-auto lg:mx-0 font-bold font-gothamBold'
+        class='text-5xl sm:text-6xl md:text-6xl xl:text-7xl sm:w-4/5 lg:w-3/5 sm:mx-auto lg:mx-0 font-bold font-gothamBold'
       >
         Fertilizers for the future
       </h1>
