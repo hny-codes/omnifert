@@ -52,6 +52,7 @@ const baseUrlCheck = String(Astro.url).split('/').at(-1) === 'blog';
                 src={article.data.image}
                 alt={article.data.imageAlt}
                 loading={idx === 0 ? 'eager' : 'lazy'}
+                transition:name={`${article.data.title} image`}
               />
               <div class='flex gap-2 mt-6 mb-4 text-[--clr-font] font-montserrat font-medium text-sm text-[0.938rem] flex-wrap'>
                 <div class='flex items-center justify-center gap-2'>
